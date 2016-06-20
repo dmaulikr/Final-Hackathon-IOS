@@ -1,5 +1,5 @@
 //
-//  CurrentChap.h
+//  ChapContent.h
 //  Final Project
 //
 //  Created by Hung Ga 123 on 6/20/16.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CurrentChap : NSObject
-@property NSString *title;
-@property NSString *url;
+@interface ChapContent : NSObject
+@property NSString *textContent;
 @end

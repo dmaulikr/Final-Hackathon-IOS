@@ -1,5 +1,5 @@
 //
-//  CurrentChap.h
+//  Author.h
 //  Final Project
 //
 //  Created by Hung Ga 123 on 6/20/16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CurrentChap : NSObject
+@interface Author : NSObject
 @property NSString *title;
 @property NSString *url;
 @end

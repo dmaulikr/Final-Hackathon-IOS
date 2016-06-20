@@ -7,13 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ChapID.h"
-#import "Chapter.h"
 #import "ChapterName.h"
-#import "DateUpdate.h"
 @interface ChapDetail : NSObject
-@property ChapID *chapID;
-@property Chapter *chapter;
 @property ChapterName *chapterName;
-@property DateUpdate *dateUpdate;
 @end

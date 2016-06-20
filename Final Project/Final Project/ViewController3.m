@@ -15,44 +15,70 @@
 @implementation ViewController3
 -(void) loadListStorys:(NSString*)storyUrlString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
-//Story'name and link
-    NSString *storyNameXpathQueryString = @"//h3[@class='prodTitle']";
+    //Story'name and Url
+    NSString *storyNameXpathQueryString = @"//h3[@class='truyen-title']/a";
     NSArray *storyNameNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
-                                             withXpathQueryString:storyNameXpathQueryString];
+                                                 withXpathQueryString:storyNameXpathQueryString];
     for (TFHppleElement *element in storyNameNodes) {
         StoryName *storyName = [[StoryName alloc] init];
-        storyName.title = [[element  firstChild] objectForKey:@"title"];
-        storyName.url = [[element  firstChild] objectForKey:@"href"];
+        storyName.title = [element.firstChild content];
+        storyName.url = [element objectForKey:@"href"];
         StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
         [newStorys addObject:storyIntro];
         storyIntro.storyName = storyName;
     }
-//Current chap
-    NSString *currentChapXpathQueryString = @"//div[@class='bgprod']";
+    //Current chap
+    NSString *currentChapXpathQueryString = @"//div[@class='col-xs-2 text-info']/div/a";
     NSArray *currentChapNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
-                                             withXpathQueryString:currentChapXpathQueryString];
+                                                   withXpathQueryString:currentChapXpathQueryString];
     int i=0;
     for (TFHppleElement *element in currentChapNodes) {
         CurrentChap *currentChap = [[CurrentChap alloc] init];
-        currentChap.title = [element.firstChild content];
+        currentChap.title = @"";
+        for (TFHppleElement *child in element.children) {
+            if([child.tagName isEqualToString:@"span"]) continue;
+            else {
+                currentChap.title = [currentChap.title stringByAppendingString:child.content];
+            }
+        }
         StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
         storyIntro = [newStorys objectAtIndex:i];
         storyIntro.currentChap = currentChap;
         i++;
     }
     i = 0;
-//Cover
-    NSString *coverXpathQueryString = @"//div[@class='list_img']/a/img";
+    //Author
+    NSString *authorXpathQueryString = @"//span[@class='author']";
+    NSArray *authorNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+                                              withXpathQueryString:authorXpathQueryString];
+    for (TFHppleElement *element in authorNodes) {
+        Author *author = [[Author alloc] init];
+        
+        for (TFHppleElement *child in element.children) {
+            if([child.tagName isEqualToString:@"span"]) continue;
+            else {
+                author.title = [child content];
+            }
+        }
+        StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
+        storyIntro = [newStorys objectAtIndex:i];
+        storyIntro.author = author;
+        i++;
+    }
+    i = 0;
+    //Cover
+    NSString *coverXpathQueryString = @"//div[@class='col-xs-3']/div";
     NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
-                                                   withXpathQueryString:coverXpathQueryString];
+                                             withXpathQueryString:coverXpathQueryString];
     for (TFHppleElement *element in coverNodes) {
         Cover *cover = [[Cover alloc] init];
-        cover.url = [element objectForKey:@"src"];
+        cover.url = [[element.firstChild attributes] objectForKey:@"data-image"];
         StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
         storyIntro = [newStorys objectAtIndex:i];
         storyIntro.cover = cover;
         i++;
     }
+    i = 0;
     self.storyObjects = newStorys;
     [self.tableView reloadData];
 }
@@ -70,9 +96,12 @@
     cell.indexPath = indexPath;
     cell.coverImgView.image = nil;
     StoryIntroduce  *storyOfThisCell = [self.storyObjects objectAtIndex:indexPath.row];
+    
     cell.lblStoryName.text = storyOfThisCell.storyName.title;
     cell.lblLink.text = storyOfThisCell.storyName.url;
     cell.lblCurrentChap.text = storyOfThisCell.currentChap.title;
+    cell.lblAuthor.text = storyOfThisCell.author.title;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [cell.coverImgView sd_setImageWithURL:[NSURL URLWithString:storyOfThisCell.cover.url]];
         UIImage *img = cell.coverImgView.image;
@@ -90,6 +119,7 @@
     self.listChapVCL = [sb instantiateViewControllerWithIdentifier:@"4"];
     StoryIntroduce *storyOfThisCell = [self.storyObjects objectAtIndex:indexPath.row];
     [self.listChapVCL loadListChap:storyOfThisCell.storyName.url];
+    [self.listChapVCL loadSummary:storyOfThisCell.storyName.url];
     [self.navigationController pushViewController:self.listChapVCL animated:YES];
 }
 

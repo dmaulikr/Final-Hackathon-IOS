@@ -1,5 +1,5 @@
 //
-//  CurrentChap.h
+//  Rating.h
 //  Final Project
 //
 //  Created by Hung Ga 123 on 6/20/16.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CurrentChap : NSObject
+@interface Rating : NSObject
 @property NSString *title;
-@property NSString *url;
 @end

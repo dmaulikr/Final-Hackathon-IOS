@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrentChap;
 @property (weak, nonatomic) IBOutlet UILabel *lblLink;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblAuthor;
 @property NSIndexPath *indexPath;
 @end

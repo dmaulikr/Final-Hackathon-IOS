@@ -10,8 +10,10 @@
 #import "Cover.h"
 #import "CurrentChap.h"
 #import "StoryName.h"
+#import "Author.h"
 @interface StoryIntroduce : NSObject
 @property Cover *cover;
 @property CurrentChap *currentChap;
 @property StoryName *storyName;
+@property Author *author;
 @end

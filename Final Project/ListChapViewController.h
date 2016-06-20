@@ -10,9 +10,14 @@
 #import <TFHppleElement.h>
 #import "CustomCell3.h"
 #import "ChapDetail.h"
+#import "Summary.h"
 #import "APIClient.h"
 @interface ListChapViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *chapDetailObjects;
+@property NSMutableArray *summaryObjects;
 -(void) loadListChap:(NSString*)chapUrlString;
+-(void) loadSummary:(NSString*)chapUrlString;
+@property (weak, nonatomic) IBOutlet UILabel *lblSummaryContent;
+@property (weak, nonatomic) IBOutlet UILabel *lblRating;
 @end

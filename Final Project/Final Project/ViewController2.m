@@ -52,8 +52,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] init];
-    NSString *categoryUrlString = @"http://webtruyen.com";
-    NSString *categorysXpathQueryString = @"//ul[@class='menu_theloai']/li/a";
+    NSString *categoryUrlString = @"http://truyenfull.vn/";
+    NSString *categorysXpathQueryString = @"//div[@class='col-xs-6']/a";
     [self loadCategory:categoryUrlString withXpathQueryString:categorysXpathQueryString];
 }
 

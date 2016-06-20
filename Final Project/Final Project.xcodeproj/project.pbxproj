@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		9D100AFF268CB69229835823 /* libPods-Final Project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37336A19CBFB1160DCDC906 /* libPods-Final Project.a */; };
+		E90AF4791D1838B40047F5B6 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = E90AF4781D1838B40047F5B6 /* Author.m */; };
+		E90AF47C1D1839CE0047F5B6 /* Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = E90AF47B1D1839CE0047F5B6 /* Summary.m */; };
+		E90AF47F1D183AC70047F5B6 /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = E90AF47E1D183AC70047F5B6 /* Rating.m */; };
+		E90AF4821D183B540047F5B6 /* ChapContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E90AF4811D183B540047F5B6 /* ChapContent.m */; };
+		E90AF4851D183B670047F5B6 /* SummaryContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E90AF4841D183B670047F5B6 /* SummaryContent.m */; };
 		E93B28431D16618900486477 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E93B28421D16618900486477 /* libxml2.tbd */; };
 		E9B2AF071D0FD62B00E76071 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B2AF061D0FD62B00E76071 /* main.m */; };
 		E9B2AF0A1D0FD62B00E76071 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B2AF091D0FD62B00E76071 /* AppDelegate.m */; };
@@ -39,6 +44,16 @@
 		46D1778CBE5650CACB988F50 /* Pods-Final Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final Project/Pods-Final Project.debug.xcconfig"; sourceTree = "<group>"; };
 		CC7FE45D552FFBA0B6A15650 /* Pods-Final Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final Project/Pods-Final Project.release.xcconfig"; sourceTree = "<group>"; };
 		D37336A19CBFB1160DCDC906 /* libPods-Final Project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Final Project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90AF4771D1838B40047F5B6 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		E90AF4781D1838B40047F5B6 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		E90AF47A1D1839CE0047F5B6 /* Summary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Summary.h; sourceTree = "<group>"; };
+		E90AF47B1D1839CE0047F5B6 /* Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Summary.m; sourceTree = "<group>"; };
+		E90AF47D1D183AC70047F5B6 /* Rating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rating.h; sourceTree = "<group>"; };
+		E90AF47E1D183AC70047F5B6 /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rating.m; sourceTree = "<group>"; };
+		E90AF4801D183B540047F5B6 /* ChapContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapContent.h; sourceTree = "<group>"; };
+		E90AF4811D183B540047F5B6 /* ChapContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapContent.m; sourceTree = "<group>"; };
+		E90AF4831D183B670047F5B6 /* SummaryContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryContent.h; sourceTree = "<group>"; };
+		E90AF4841D183B670047F5B6 /* SummaryContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryContent.m; sourceTree = "<group>"; };
 		E93B28421D16618900486477 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		E9B2AF021D0FD62B00E76071 /* Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B2AF061D0FD62B00E76071 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -192,6 +207,8 @@
 				E9CC6DE71D17E3DB003EEB08 /* CustomCell3.m */,
 				E9CC6DF51D17E4F3003EEB08 /* ChapDetail.h */,
 				E9CC6DF61D17E4F3003EEB08 /* ChapDetail.m */,
+				E90AF47A1D1839CE0047F5B6 /* Summary.h */,
+				E90AF47B1D1839CE0047F5B6 /* Summary.m */,
 			);
 			name = ChapDetail;
 			sourceTree = "<group>";
@@ -213,6 +230,14 @@
 				E9CC6DCC1D17330B003EEB08 /* Cover.m */,
 				E9CC6DD71D1741CD003EEB08 /* CurrentChap.h */,
 				E9CC6DD81D1741CD003EEB08 /* CurrentChap.m */,
+				E90AF4771D1838B40047F5B6 /* Author.h */,
+				E90AF4781D1838B40047F5B6 /* Author.m */,
+				E90AF47D1D183AC70047F5B6 /* Rating.h */,
+				E90AF47E1D183AC70047F5B6 /* Rating.m */,
+				E90AF4801D183B540047F5B6 /* ChapContent.h */,
+				E90AF4811D183B540047F5B6 /* ChapContent.m */,
+				E90AF4831D183B670047F5B6 /* SummaryContent.h */,
+				E90AF4841D183B670047F5B6 /* SummaryContent.m */,
 			);
 			name = SubClass;
 			sourceTree = "<group>";
@@ -357,16 +382,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E90AF47F1D183AC70047F5B6 /* Rating.m in Sources */,
 				E9CC6DC41D17166B003EEB08 /* Category.m in Sources */,
 				E9B2AF0D1D0FD62B00E76071 /* ViewController.m in Sources */,
 				E9CC6DD31D173C17003EEB08 /* ViewController3.m in Sources */,
 				E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */,
 				E9CC6DEE1D17E48E003EEB08 /* ChapID.m in Sources */,
 				E9B2AF0A1D0FD62B00E76071 /* AppDelegate.m in Sources */,
+				E90AF4821D183B540047F5B6 /* ChapContent.m in Sources */,
+				E90AF4791D1838B40047F5B6 /* Author.m in Sources */,
 				E9CC6DDC1D174642003EEB08 /* StoryIntroduce.m in Sources */,
 				E9CC6DE81D17E3DB003EEB08 /* CustomCell3.m in Sources */,
+				E90AF47C1D1839CE0047F5B6 /* Summary.m in Sources */,
 				E9B2AF131D0FD62B00E76071 /* Final_Project.xcdatamodeld in Sources */,
 				E9CC6DFA1D17E556003EEB08 /* DateUpdate.m in Sources */,
+				E90AF4851D183B670047F5B6 /* SummaryContent.m in Sources */,
 				E9CC6DC71D171A75003EEB08 /* APIClient.m in Sources */,
 				E9CC6DF71D17E4F3003EEB08 /* ChapDetail.m in Sources */,
 				E9CC6DBE1D16ADF2003EEB08 /* CustomCell.m in Sources */,
