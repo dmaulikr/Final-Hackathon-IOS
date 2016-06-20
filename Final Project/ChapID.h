@@ -1,5 +1,5 @@
 //
-//  Chapter.h
+//  ChapID.h
 //  Final Project
 //
 //  Created by Hung Ga 123 on 6/20/16.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Chapter : NSObject
+@interface ChapID : NSObject
 @property NSString *title;
 @end

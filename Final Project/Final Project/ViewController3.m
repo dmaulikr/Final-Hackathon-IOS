@@ -56,12 +56,15 @@
     self.storyObjects = newStorys;
     [self.tableView reloadData];
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 300;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.storyObjects.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomCell2 *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     cell.indexPath = indexPath;
@@ -80,6 +83,14 @@
         });
     });
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    self.listChapVCL = [sb instantiateViewControllerWithIdentifier:@"4"];
+    StoryIntroduce *storyOfThisCell = [self.storyObjects objectAtIndex:indexPath.row];
+    [self.listChapVCL loadListChap:storyOfThisCell.storyName.url];
+    [self.navigationController pushViewController:self.listChapVCL animated:YES];
 }
 
 - (void)viewDidLoad {

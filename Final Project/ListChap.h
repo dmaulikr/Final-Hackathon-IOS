@@ -1,5 +1,5 @@
 //
-//  Chapter.h
+//  ListChap.h
 //  Final Project
 //
 //  Created by Hung Ga 123 on 6/20/16.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Chapter : NSObject
-@property NSString *title;
+@interface ListChap : NSObject
+
 @end

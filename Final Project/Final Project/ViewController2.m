@@ -47,18 +47,6 @@
     Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
     [self.vcl3 loadListStorys:categoryOfThisCell.url];
     [self.navigationController pushViewController:_vcl3 animated:YES];
-    
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (4 *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //        [self presentViewController:_vcl3 animated:YES completion:^{
-    //
-    //        }];
-    //    });
-    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    //
-    //            dispatch_async(dispatch_get_main_queue(), ^{
-    //
-    //            });
-    //    });
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
