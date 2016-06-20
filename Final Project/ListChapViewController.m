@@ -49,10 +49,16 @@
         chapterName.title = [[element firstChild] content];
         chapterName.url = [element objectForKey:@"href"];
         ChapDetail *chapDetail = [[ChapDetail alloc] init];
-        chapDetail = [newChaps objectAtIndex:i];
+        chapDetail = [newChaps objectAtIndex:i+1];
         chapDetail.chapterName = chapterName;
         i++;
     }
+    ChapterName *chapterName = [[ChapterName alloc] init];
+    chapterName.title = @"Ten Chuong";
+    chapterName.url = @"Chap url";
+    ChapDetail *chapDetail = [[ChapDetail alloc] init];
+    chapDetail = [newChaps objectAtIndex:0];
+    chapDetail.chapterName = chapterName;
     i = 0;
     //DateUpdate
     NSString *dateUpdateXpathQueryString = @"//span[@class='spandataup']";
