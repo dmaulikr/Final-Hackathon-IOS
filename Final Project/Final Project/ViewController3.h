@@ -11,6 +11,7 @@
 #import "CustomCell2.h"
 #import "APIClient.h"
 #import "StoryIntroduce.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface ViewController3 : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *storyObjects;

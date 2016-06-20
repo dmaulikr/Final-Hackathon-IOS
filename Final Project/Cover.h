@@ -9,6 +9,5 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface Cover : NSObject
-@property UIImage *imageCover;
 @property NSString *url;
 @end

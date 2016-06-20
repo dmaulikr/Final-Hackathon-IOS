@@ -15,11 +15,11 @@
 @implementation ViewController3
 -(void) loadListStorys:(NSString*)storyUrlString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
-//Cover
-    NSString *coverXpathQueryString = @"//h3[@class='prodTitle']";
-    NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
-                                             withXpathQueryString:coverXpathQueryString];
-    for (TFHppleElement *element in coverNodes) {
+//Story'name and link
+    NSString *storyNameXpathQueryString = @"//h3[@class='prodTitle']";
+    NSArray *storyNameNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+                                             withXpathQueryString:storyNameXpathQueryString];
+    for (TFHppleElement *element in storyNameNodes) {
         StoryName *storyName = [[StoryName alloc] init];
         storyName.title = [[element  firstChild] objectForKey:@"title"];
         storyName.url = [[element  firstChild] objectForKey:@"href"];
@@ -38,7 +38,20 @@
         StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
         storyIntro = [newStorys objectAtIndex:i];
         storyIntro.currentChap = currentChap;
-        NSLog(@"%@",[element.firstChild content]);
+        i++;
+    }
+    i = 0;
+//Cover
+    NSString *coverXpathQueryString = @"//div[@class='list_img']/a/img";
+    NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+                                                   withXpathQueryString:coverXpathQueryString];
+    for (TFHppleElement *element in coverNodes) {
+        Cover *cover = [[Cover alloc] init];
+        cover.url = [element objectForKey:@"src"];
+        StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
+        storyIntro = [newStorys objectAtIndex:i];
+        storyIntro.cover = cover;
+        NSLog(@"%@",[element objectForKey:@"src"]);
         i++;
     }
     self.storyObjects = newStorys;
@@ -56,6 +69,7 @@
     cell.lblStoryName.text = storyOfThisCell.storyName.title;
     cell.lblLink.text = storyOfThisCell.storyName.url;
     cell.lblCurrentChap.text = storyOfThisCell.currentChap.title;
+    [cell.coverImgView sd_setImageWithURL:[NSURL URLWithString:storyOfThisCell.cover.url]];
     return cell;
 }
 
