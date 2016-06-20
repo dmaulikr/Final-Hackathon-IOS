@@ -47,10 +47,9 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     self.vcl3 = [sb instantiateViewControllerWithIdentifier:@"3"];
     Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
-    self.vcl3.clickedLink = categoryOfThisCell.url;
-    [self presentViewController:_vcl3 animated:YES completion:^{
-        
-    }];
+    [self.vcl3 loadListStorys:categoryOfThisCell.url];
+    [self.navigationController pushViewController:_vcl3 animated:YES];
+    
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (4 *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [self presentViewController:_vcl3 animated:YES completion:^{
 //            

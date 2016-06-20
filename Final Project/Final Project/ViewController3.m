@@ -14,28 +14,38 @@
 
 @implementation ViewController3
 -(void) loadListStorys:(NSString*)storyUrlString {
-    NSString *imgXpathQueryString = @"//ul[@class='list_ct']/li";
-    NSArray *storyNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
-                                             withXpathQueryString:imgXpathQueryString];
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
-    for (TFHppleElement *element in storyNodes) {
+//Cover
+    NSString *coverXpathQueryString = @"//h3[@class='prodTitle']";
+    NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+                                             withXpathQueryString:coverXpathQueryString];
+    for (TFHppleElement *element in coverNodes) {
+        StoryName *storyName = [[StoryName alloc] init];
+        storyName.title = [[element  firstChild] objectForKey:@"title"];
+        storyName.url = [[element  firstChild] objectForKey:@"href"];
         StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
         [newStorys addObject:storyIntro];
-        NSLog(@"%@", [[[element  firstChild] firstChild] objectForKey:@"title"]);
-        NSLog(@"%@", [[[element  firstChild] firstChild] objectForKey:@"href"]);
-        storyIntro.storyName.title = [[[element  firstChild] firstChild] objectForKey:@"title"];
-        storyIntro.storyName.url = [[[element  firstChild] firstChild] objectForKey:@"href"];
-        for (TFHppleElement *child in element.children) {
-            if([child.tagName isEqualToString:@"h3"]) {
-                
-            }
-        }
+        storyIntro.storyName = storyName;
+    }
+//Current chap
+    NSString *currentChapXpathQueryString = @"//div[@class='bgprod']";
+    NSArray *currentChapNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+                                             withXpathQueryString:currentChapXpathQueryString];
+    int i=0;
+    for (TFHppleElement *element in currentChapNodes) {
+        CurrentChap *currentChap = [[CurrentChap alloc] init];
+        currentChap.title = [element.firstChild content];
+        StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
+        storyIntro = [newStorys objectAtIndex:i];
+        storyIntro.currentChap = currentChap;
+        NSLog(@"%@",[element.firstChild content]);
+        i++;
     }
     self.storyObjects = newStorys;
     [self.tableView reloadData];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 150;
+    return 200;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.storyObjects.count;
@@ -44,14 +54,14 @@
     CustomCell2 *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     StoryIntroduce  *storyOfThisCell = [self.storyObjects objectAtIndex:indexPath.row];
     cell.lblStoryName.text = storyOfThisCell.storyName.title;
-    cell.lblCurrentChap.text = storyOfThisCell.storyName.url;
+    cell.lblLink.text = storyOfThisCell.storyName.url;
+    cell.lblCurrentChap.text = storyOfThisCell.currentChap.title;
     return cell;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self loadListStorys:self.clickedLink];
 }
 
 - (void)didReceiveMemoryWarning {

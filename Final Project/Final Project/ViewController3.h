@@ -15,5 +15,4 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *storyObjects;
 -(void) loadListStorys:(NSString*)storyUrlString;
-@property NSString *clickedLink;
 @end
