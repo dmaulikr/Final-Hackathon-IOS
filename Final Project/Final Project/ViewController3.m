@@ -51,25 +51,34 @@
         StoryIntroduce *storyIntro = [[StoryIntroduce alloc] init];
         storyIntro = [newStorys objectAtIndex:i];
         storyIntro.cover = cover;
-        NSLog(@"%@",[element objectForKey:@"src"]);
         i++;
     }
     self.storyObjects = newStorys;
     [self.tableView reloadData];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    return 300;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.storyObjects.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomCell2 *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+    cell.indexPath = indexPath;
+    cell.coverImgView.image = nil;
     StoryIntroduce  *storyOfThisCell = [self.storyObjects objectAtIndex:indexPath.row];
     cell.lblStoryName.text = storyOfThisCell.storyName.title;
     cell.lblLink.text = storyOfThisCell.storyName.url;
     cell.lblCurrentChap.text = storyOfThisCell.currentChap.title;
-    [cell.coverImgView sd_setImageWithURL:[NSURL URLWithString:storyOfThisCell.cover.url]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [cell.coverImgView sd_setImageWithURL:[NSURL URLWithString:storyOfThisCell.cover.url]];
+        UIImage *img = cell.coverImgView.image;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(cell.indexPath.row == indexPath.row) {
+                cell.coverImgView.image = img;
+            }
+        });
+    });
     return cell;
 }
 

@@ -136,7 +136,7 @@
                                                     <rect key="frame" x="205" y="29" width="190" height="103"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Link" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmC-13-4Wa">
-                                                    <rect key="frame" x="18" y="132" width="572" height="21"/>
+                                                    <rect key="frame" x="10" y="132" width="580" height="21"/>
                                                     <color key="backgroundColor" red="0.58559002790000003" green="0.9123946275" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,7 +157,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="eP9-Uy-xnK" secondAttribute="trailing" constant="205" id="8Yl-cv-gbS"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="wmC-13-4Wa" secondAttribute="bottom" constant="2" id="MdM-H0-VSP"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="wmC-13-4Wa" secondAttribute="trailing" constant="2" id="RZg-Xe-fFa"/>
+                                                <constraint firstAttribute="trailing" secondItem="wmC-13-4Wa" secondAttribute="trailing" constant="10" id="VPz-dK-ZMl"/>
                                                 <constraint firstItem="wmC-13-4Wa" firstAttribute="top" secondItem="eP9-Uy-xnK" secondAttribute="bottom" id="ZGa-lb-1aN"/>
                                                 <constraint firstItem="vch-Xd-h8E" firstAttribute="top" secondItem="KKh-tQ-Kuk" secondAttribute="bottom" constant="23" id="eps-hn-WhF"/>
                                                 <constraint firstItem="eP9-Uy-xnK" firstAttribute="top" secondItem="KKh-tQ-Kuk" secondAttribute="bottom" id="jqN-LI-eJq"/>
@@ -168,7 +168,7 @@
                                         <constraints>
                                             <constraint firstItem="KKh-tQ-Kuk" firstAttribute="leading" secondItem="Kb0-W9-eYN" secondAttribute="leading" constant="10" id="9eX-wI-8yU"/>
                                             <constraint firstItem="KKh-tQ-Kuk" firstAttribute="top" secondItem="Kb0-W9-eYN" secondAttribute="top" constant="8" id="Uq9-1w-veh"/>
-                                            <constraint firstItem="wmC-13-4Wa" firstAttribute="leading" secondItem="Kb0-W9-eYN" secondAttribute="leading" constant="18" id="oBC-Ap-Gur"/>
+                                            <constraint firstItem="wmC-13-4Wa" firstAttribute="leading" secondItem="Kb0-W9-eYN" secondAttribute="leading" constant="10" id="oBC-Ap-Gur"/>
                                             <constraint firstAttribute="trailing" secondItem="KKh-tQ-Kuk" secondAttribute="trailing" constant="10" id="oNH-4S-su2"/>
                                         </constraints>
                                         <connections>

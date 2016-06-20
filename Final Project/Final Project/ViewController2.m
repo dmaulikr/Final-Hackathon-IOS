@@ -13,9 +13,7 @@
 @end
 
 @implementation ViewController2
--(void) loadCategory {
-    NSString *categoryUrlString = @"http://webtruyen.com";
-    NSString *categorysXpathQueryString = @"//ul[@class='menu_theloai']/li/a";
+-(void) loadCategory:(NSString*)categoryUrlString withXpathQueryString:(NSString*)categorysXpathQueryString {
     NSArray *categoryNodes = [[APIClient sharedInstance] loadFromUrl:categoryUrlString
                                                 withXpathQueryString:categorysXpathQueryString];
     NSMutableArray *newCategorys = [[NSMutableArray alloc] init];
@@ -50,23 +48,25 @@
     [self.vcl3 loadListStorys:categoryOfThisCell.url];
     [self.navigationController pushViewController:_vcl3 animated:YES];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (4 *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self presentViewController:_vcl3 animated:YES completion:^{
-//            
-//        }];
-//    });
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                
-//            });
-//    });
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (4 *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //        [self presentViewController:_vcl3 animated:YES completion:^{
+    //
+    //        }];
+    //    });
+    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //
+    //            dispatch_async(dispatch_get_main_queue(), ^{
+    //
+    //            });
+    //    });
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] init];
-    [self loadCategory];
+    NSString *categoryUrlString = @"http://webtruyen.com";
+    NSString *categorysXpathQueryString = @"//ul[@class='menu_theloai']/li/a";
+    [self loadCategory:categoryUrlString withXpathQueryString:categorysXpathQueryString];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,13 +75,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
