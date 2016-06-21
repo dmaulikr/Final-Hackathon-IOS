@@ -23,12 +23,12 @@
 		E9B2AF181D0FD62B00E76071 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B2AF161D0FD62B00E76071 /* LaunchScreen.storyboard */; };
 		E9BA4D9D1D1923DF0006FEF5 /* ChapContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */; };
 		E9CC6DBE1D16ADF2003EEB08 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DBD1D16ADF2003EEB08 /* CustomCell.m */; };
-		E9CC6DC11D171445003EEB08 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC01D171445003EEB08 /* ViewController2.m */; };
+		E9CC6DC11D171445003EEB08 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC01D171445003EEB08 /* CategoryViewController.m */; };
 		E9CC6DC41D17166B003EEB08 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC31D17166B003EEB08 /* Category.m */; };
 		E9CC6DC71D171A75003EEB08 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC61D171A75003EEB08 /* APIClient.m */; };
 		E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC91D1732C8003EEB08 /* StoryName.m */; };
 		E9CC6DCD1D17330B003EEB08 /* Cover.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DCC1D17330B003EEB08 /* Cover.m */; };
-		E9CC6DD31D173C17003EEB08 /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD21D173C17003EEB08 /* ViewController3.m */; };
+		E9CC6DD31D173C17003EEB08 /* StoryIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD21D173C17003EEB08 /* StoryIntroViewController.m */; };
 		E9CC6DD61D173CFB003EEB08 /* CustomCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD51D173CFB003EEB08 /* CustomCell2.m */; };
 		E9CC6DD91D1741CD003EEB08 /* CurrentChap.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD81D1741CD003EEB08 /* CurrentChap.m */; };
 		E9CC6DDC1D174642003EEB08 /* StoryIntroduce.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DDB1D174642003EEB08 /* StoryIntroduce.m */; };
@@ -68,8 +68,8 @@
 		E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapContentViewController.m; sourceTree = "<group>"; };
 		E9CC6DBC1D16ADF2003EEB08 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = "Final Project/CustomCell.h"; sourceTree = "<group>"; };
 		E9CC6DBD1D16ADF2003EEB08 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = "Final Project/CustomCell.m"; sourceTree = "<group>"; };
-		E9CC6DBF1D171445003EEB08 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController2.h; path = "Final Project/ViewController2.h"; sourceTree = "<group>"; };
-		E9CC6DC01D171445003EEB08 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController2.m; path = "Final Project/ViewController2.m"; sourceTree = "<group>"; };
+		E9CC6DBF1D171445003EEB08 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryViewController.h; path = "Final Project/CategoryViewController.h"; sourceTree = "<group>"; };
+		E9CC6DC01D171445003EEB08 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryViewController.m; path = "Final Project/CategoryViewController.m"; sourceTree = "<group>"; };
 		E9CC6DC21D17166B003EEB08 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		E9CC6DC31D17166B003EEB08 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		E9CC6DC51D171A75003EEB08 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 		E9CC6DC91D1732C8003EEB08 /* StoryName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryName.m; sourceTree = "<group>"; };
 		E9CC6DCB1D17330B003EEB08 /* Cover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cover.h; sourceTree = "<group>"; };
 		E9CC6DCC1D17330B003EEB08 /* Cover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cover.m; sourceTree = "<group>"; };
-		E9CC6DD11D173C17003EEB08 /* ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController3.h; path = "Final Project/ViewController3.h"; sourceTree = "<group>"; };
-		E9CC6DD21D173C17003EEB08 /* ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController3.m; path = "Final Project/ViewController3.m"; sourceTree = "<group>"; };
+		E9CC6DD11D173C17003EEB08 /* StoryIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryIntroViewController.h; path = "Final Project/StoryIntroViewController.h"; sourceTree = "<group>"; };
+		E9CC6DD21D173C17003EEB08 /* StoryIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryIntroViewController.m; path = "Final Project/StoryIntroViewController.m"; sourceTree = "<group>"; };
 		E9CC6DD41D173CFB003EEB08 /* CustomCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell2.h; path = "Final Project/CustomCell2.h"; sourceTree = "<group>"; };
 		E9CC6DD51D173CFB003EEB08 /* CustomCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell2.m; path = "Final Project/CustomCell2.m"; sourceTree = "<group>"; };
 		E9CC6DD71D1741CD003EEB08 /* CurrentChap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentChap.h; sourceTree = "<group>"; };
@@ -216,8 +216,8 @@
 		E9CC6DDD1D1746E2003EEB08 /* IntroduceStory */ = {
 			isa = PBXGroup;
 			children = (
-				E9CC6DD11D173C17003EEB08 /* ViewController3.h */,
-				E9CC6DD21D173C17003EEB08 /* ViewController3.m */,
+				E9CC6DD11D173C17003EEB08 /* StoryIntroViewController.h */,
+				E9CC6DD21D173C17003EEB08 /* StoryIntroViewController.m */,
 				E9CC6DD41D173CFB003EEB08 /* CustomCell2.h */,
 				E9CC6DD51D173CFB003EEB08 /* CustomCell2.m */,
 				E9CC6DDA1D174642003EEB08 /* StoryIntroduce.h */,
@@ -229,8 +229,8 @@
 		E9CC6DDE1D174707003EEB08 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				E9CC6DBF1D171445003EEB08 /* ViewController2.h */,
-				E9CC6DC01D171445003EEB08 /* ViewController2.m */,
+				E9CC6DBF1D171445003EEB08 /* CategoryViewController.h */,
+				E9CC6DC01D171445003EEB08 /* CategoryViewController.m */,
 				E9CC6DBC1D16ADF2003EEB08 /* CustomCell.h */,
 				E9CC6DBD1D16ADF2003EEB08 /* CustomCell.m */,
 				E9CC6DC21D17166B003EEB08 /* Category.h */,
@@ -407,7 +407,7 @@
 				E90AF47F1D183AC70047F5B6 /* Rating.m in Sources */,
 				E9CC6DC41D17166B003EEB08 /* Category.m in Sources */,
 				E9B2AF0D1D0FD62B00E76071 /* ViewController.m in Sources */,
-				E9CC6DD31D173C17003EEB08 /* ViewController3.m in Sources */,
+				E9CC6DD31D173C17003EEB08 /* StoryIntroViewController.m in Sources */,
 				E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */,
 				E9B2AF0A1D0FD62B00E76071 /* AppDelegate.m in Sources */,
 				E90AF4821D183B540047F5B6 /* ChapContent.m in Sources */,
@@ -425,7 +425,7 @@
 				E9CC6DE51D17DB8C003EEB08 /* ListChapViewController.m in Sources */,
 				E9CC6DD61D173CFB003EEB08 /* CustomCell2.m in Sources */,
 				E9CC6DCD1D17330B003EEB08 /* Cover.m in Sources */,
-				E9CC6DC11D171445003EEB08 /* ViewController2.m in Sources */,
+				E9CC6DC11D171445003EEB08 /* CategoryViewController.m in Sources */,
 				E9B2AF071D0FD62B00E76071 /* main.m in Sources */,
 				E9CC6DD91D1741CD003EEB08 /* CurrentChap.m in Sources */,
 			);

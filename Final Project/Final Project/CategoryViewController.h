@@ -11,9 +11,10 @@
 #import "CustomCell.h"
 #import "Category.h"
 #import "APIClient.h"
-#import "ViewController3.h"
-@interface ViewController2 : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "StoryIntroViewController.h"
+@interface CategoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *categoryObjects;
-@property ViewController3 *vcl3;
+
+@property StoryIntroViewController *storyIntroVCL;
 @end

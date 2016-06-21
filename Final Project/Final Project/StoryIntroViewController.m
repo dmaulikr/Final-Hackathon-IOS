@@ -6,13 +6,13 @@
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
-#import "ViewController3.h"
+#import "StoryIntroViewController.h"
 
-@interface ViewController3 ()
+@interface StoryIntroViewController ()
 
 @end
 
-@implementation ViewController3
+@implementation StoryIntroViewController
 -(void) loadListStorys:(NSString*)UrlString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
     //Story'name and Url
@@ -101,7 +101,6 @@
     cell.lblLink.text = storyOfThisCell.storyName.url;
     cell.lblCurrentChap.text = storyOfThisCell.currentChap.title;
     cell.lblAuthor.text = storyOfThisCell.author.title;
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [cell.coverImgView sd_setImageWithURL:[NSURL URLWithString:storyOfThisCell.cover.url]];
         UIImage *img = cell.coverImgView.image;

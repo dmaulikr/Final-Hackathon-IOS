@@ -13,7 +13,7 @@
 #import "StoryIntroduce.h"
 #import "ListChapViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-@interface ViewController3 : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface StoryIntroViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *storyObjects;
 -(void) loadListStorys:(NSString*)UrlString;

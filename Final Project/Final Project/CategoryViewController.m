@@ -6,15 +6,15 @@
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
-#import "ViewController2.h"
+#import "CategoryViewController.h"
 
-@interface ViewController2 ()
+@interface CategoryViewController ()
 
 @end
 
-@implementation ViewController2
+@implementation CategoryViewController
 -(void) loadCategory:(NSString*)categoryUrlString withXpathQueryString:(NSString*)categorysXpathQueryString {
-     NSMutableArray *newCategorys = [[NSMutableArray alloc] init];
+    NSMutableArray *newCategorys = [[NSMutableArray alloc] init];
     NSArray *categoryNodes = [[APIClient sharedInstance] loadFromUrl:categoryUrlString
                                                 withXpathQueryString:categorysXpathQueryString];
     for (TFHppleElement *element in categoryNodes) {
@@ -43,10 +43,10 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    self.vcl3 = [sb instantiateViewControllerWithIdentifier:@"3"];
+    self.storyIntroVCL = [sb instantiateViewControllerWithIdentifier:@"3"];
     Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
-    [self.vcl3 loadListStorys:categoryOfThisCell.url];
-    [self.navigationController pushViewController:_vcl3 animated:YES];
+    [self.storyIntroVCL loadListStorys:categoryOfThisCell.url];
+    [self.navigationController pushViewController:_storyIntroVCL animated:YES];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

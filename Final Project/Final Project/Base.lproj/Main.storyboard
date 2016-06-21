@@ -25,7 +25,7 @@
         <!--Category ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="Category ViewController" customClass="ViewController2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="Category ViewController" customClass="CategoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -183,7 +183,7 @@
         <!--Story introduce ViewController-->
         <scene sceneID="dGj-0T-PMQ">
             <objects>
-                <viewController storyboardIdentifier="3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g45-xh-hyX" userLabel="Story introduce ViewController" customClass="ViewController3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g45-xh-hyX" userLabel="Story introduce ViewController" customClass="StoryIntroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E30-67-spN"/>
                         <viewControllerLayoutGuide type="bottom" id="BxJ-bb-hPt"/>
