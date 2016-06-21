@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a87-EY-397" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1752" y="341"/>
+            <point key="canvasLocation" x="-1400" y="329"/>
         </scene>
         <!--Category ViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkD-DC-0G9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-671" y="-321"/>
+            <point key="canvasLocation" x="-1329" y="-392"/>
         </scene>
         <!--Story introduce ViewController-->
         <scene sceneID="dGj-0T-PMQ">
@@ -293,7 +293,66 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VST-HP-bQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="628"/>
+            <point key="canvasLocation" x="-674" y="-392"/>
+        </scene>
+        <!--Chap content ViewController-->
+        <scene sceneID="5Zr-bO-Gmn">
+            <objects>
+                <viewController storyboardIdentifier="5" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vgo-Nh-UvZ" userLabel="Chap content ViewController" customClass="ChapContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kh1-4J-GEh"/>
+                        <viewControllerLayoutGuide type="bottom" id="NEc-Nt-hYG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TKl-ql-aSN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS2-dw-Xmn">
+                                <rect key="frame" x="0.0" y="120" width="600" height="480"/>
+                                <color key="backgroundColor" red="0.9545985132" green="1" blue="0.28294004680000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alf-W3-wiR">
+                                <rect key="frame" x="0.0" y="20" width="600" height="100"/>
+                                <color key="backgroundColor" red="0.58559002790000003" green="0.9123946275" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1w-f9-5BM">
+                                <rect key="frame" x="20" y="55" width="75" height="30"/>
+                                <state key="normal" title="Home"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UK5-nG-2Uk">
+                                <rect key="frame" x="103" y="55" width="77" height="30"/>
+                                <state key="normal" title="Preview"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqE-AY-R1m">
+                                <rect key="frame" x="204" y="55" width="65" height="30"/>
+                                <state key="normal" title="Next"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="alf-W3-wiR" firstAttribute="top" secondItem="kh1-4J-GEh" secondAttribute="bottom" id="4cZ-Oh-NIf"/>
+                            <constraint firstAttribute="trailing" secondItem="alf-W3-wiR" secondAttribute="trailing" id="Oba-y4-EVe"/>
+                            <constraint firstItem="cS2-dw-Xmn" firstAttribute="top" secondItem="alf-W3-wiR" secondAttribute="bottom" id="RRI-Nv-DY0"/>
+                            <constraint firstItem="alf-W3-wiR" firstAttribute="leading" secondItem="TKl-ql-aSN" secondAttribute="leading" id="UHK-G8-RQS"/>
+                            <constraint firstItem="cS2-dw-Xmn" firstAttribute="leading" secondItem="TKl-ql-aSN" secondAttribute="leading" id="cvo-Mb-Uxf"/>
+                            <constraint firstItem="NEc-Nt-hYG" firstAttribute="top" secondItem="cS2-dw-Xmn" secondAttribute="bottom" id="oKy-g7-lke"/>
+                            <constraint firstAttribute="trailing" secondItem="cS2-dw-Xmn" secondAttribute="trailing" id="rP3-aA-ASo"/>
+                            <constraint firstItem="cS2-dw-Xmn" firstAttribute="top" secondItem="kh1-4J-GEh" secondAttribute="bottom" constant="100" id="x4Y-ye-fJu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblChapContent" destination="cS2-dw-Xmn" id="Ji4-VR-Scb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YmB-ch-FTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42" y="34"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fxt-dD-EML">

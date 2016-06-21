@@ -16,6 +16,6 @@
 @interface ViewController3 : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *storyObjects;
--(void) loadListStorys:(NSString*)storyUrlString;
+-(void) loadListStorys:(NSString*)UrlString;
 @property ListChapViewController *listChapVCL;
 @end

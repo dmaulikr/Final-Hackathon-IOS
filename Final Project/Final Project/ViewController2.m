@@ -14,9 +14,9 @@
 
 @implementation ViewController2
 -(void) loadCategory:(NSString*)categoryUrlString withXpathQueryString:(NSString*)categorysXpathQueryString {
+     NSMutableArray *newCategorys = [[NSMutableArray alloc] init];
     NSArray *categoryNodes = [[APIClient sharedInstance] loadFromUrl:categoryUrlString
                                                 withXpathQueryString:categorysXpathQueryString];
-    NSMutableArray *newCategorys = [[NSMutableArray alloc] init];
     for (TFHppleElement *element in categoryNodes) {
         Category *category = [[Category alloc] init];
         [newCategorys addObject:category];

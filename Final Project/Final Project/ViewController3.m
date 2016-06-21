@@ -13,11 +13,11 @@
 @end
 
 @implementation ViewController3
--(void) loadListStorys:(NSString*)storyUrlString {
+-(void) loadListStorys:(NSString*)UrlString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
     //Story'name and Url
     NSString *storyNameXpathQueryString = @"//h3[@class='truyen-title']/a";
-    NSArray *storyNameNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+    NSArray *storyNameNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                                  withXpathQueryString:storyNameXpathQueryString];
     for (TFHppleElement *element in storyNameNodes) {
         StoryName *storyName = [[StoryName alloc] init];
@@ -29,7 +29,7 @@
     }
     //Current chap
     NSString *currentChapXpathQueryString = @"//div[@class='col-xs-2 text-info']/div/a";
-    NSArray *currentChapNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+    NSArray *currentChapNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                                    withXpathQueryString:currentChapXpathQueryString];
     int i=0;
     for (TFHppleElement *element in currentChapNodes) {
@@ -49,7 +49,7 @@
     i = 0;
     //Author
     NSString *authorXpathQueryString = @"//span[@class='author']";
-    NSArray *authorNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+    NSArray *authorNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                               withXpathQueryString:authorXpathQueryString];
     for (TFHppleElement *element in authorNodes) {
         Author *author = [[Author alloc] init];
@@ -68,7 +68,7 @@
     i = 0;
     //Cover
     NSString *coverXpathQueryString = @"//div[@class='col-xs-3']/div";
-    NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:storyUrlString
+    NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                              withXpathQueryString:coverXpathQueryString];
     for (TFHppleElement *element in coverNodes) {
         Cover *cover = [[Cover alloc] init];
