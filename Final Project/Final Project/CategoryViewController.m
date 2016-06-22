@@ -17,7 +17,7 @@
     NSArray *categoryNodes = [[APIClient sharedInstance] loadFromUrl:categoryUrlString
                                                 withXpathQueryString:categorysXpathQueryString];
     for (TFHppleElement *element in categoryNodes) {
-        Category *category = [[Category alloc] init];
+        xCategory *category = [[xCategory alloc] init];
         [newCategorys addObject:category];
         for (TFHppleElement *child in element.children) {
             category.title = [child content];
@@ -35,7 +35,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
+    xCategory  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
     cell.lblTitle.text = categoryOfThisCell.title;
     cell.lblLink.text = categoryOfThisCell.url;
     return cell;
@@ -43,7 +43,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     ListStoryViewController *listStoryVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
-    Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
+    xCategory  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
     NSString *urlString = categoryOfThisCell.url;
     NSString *storyNameXpathQueryString = @"//h3[@class='truyen-title']/a";
     NSString *currentChapXpathQueryString = @"//div[@class='col-xs-2 text-info']/div/a";

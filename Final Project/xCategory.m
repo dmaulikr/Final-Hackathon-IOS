@@ -6,7 +6,7 @@
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
-#import "Category.h"
-@implementation Category
+#import "xCategory.h"
+@implementation xCategory
 
 @end

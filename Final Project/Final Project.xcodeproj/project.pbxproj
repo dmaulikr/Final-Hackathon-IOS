@@ -24,7 +24,7 @@
 		E9BA4D9D1D1923DF0006FEF5 /* ChapContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */; };
 		E9CC6DBE1D16ADF2003EEB08 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DBD1D16ADF2003EEB08 /* CustomCell.m */; };
 		E9CC6DC11D171445003EEB08 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC01D171445003EEB08 /* CategoryViewController.m */; };
-		E9CC6DC41D17166B003EEB08 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC31D17166B003EEB08 /* Category.m */; };
+		E9CC6DC41D17166B003EEB08 /* xCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC31D17166B003EEB08 /* xCategory.m */; };
 		E9CC6DC71D171A75003EEB08 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC61D171A75003EEB08 /* APIClient.m */; };
 		E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC91D1732C8003EEB08 /* StoryName.m */; };
 		E9CC6DCD1D17330B003EEB08 /* Cover.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DCC1D17330B003EEB08 /* Cover.m */; };
@@ -72,8 +72,8 @@
 		E9CC6DBD1D16ADF2003EEB08 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = "Final Project/CustomCell.m"; sourceTree = "<group>"; };
 		E9CC6DBF1D171445003EEB08 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryViewController.h; path = "Final Project/CategoryViewController.h"; sourceTree = "<group>"; };
 		E9CC6DC01D171445003EEB08 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryViewController.m; path = "Final Project/CategoryViewController.m"; sourceTree = "<group>"; };
-		E9CC6DC21D17166B003EEB08 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		E9CC6DC31D17166B003EEB08 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		E9CC6DC21D17166B003EEB08 /* xCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xCategory.h; sourceTree = "<group>"; };
+		E9CC6DC31D17166B003EEB08 /* xCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xCategory.m; sourceTree = "<group>"; };
 		E9CC6DC51D171A75003EEB08 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		E9CC6DC61D171A75003EEB08 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		E9CC6DC81D1732C8003EEB08 /* StoryName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryName.h; sourceTree = "<group>"; };
@@ -273,8 +273,8 @@
 		E9FDCA301D1A6CDD007734E8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				E9CC6DC21D17166B003EEB08 /* Category.h */,
-				E9CC6DC31D17166B003EEB08 /* Category.m */,
+				E9CC6DC21D17166B003EEB08 /* xCategory.h */,
+				E9CC6DC31D17166B003EEB08 /* xCategory.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -447,7 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E90AF47F1D183AC70047F5B6 /* Rating.m in Sources */,
-				E9CC6DC41D17166B003EEB08 /* Category.m in Sources */,
+				E9CC6DC41D17166B003EEB08 /* xCategory.m in Sources */,
 				E9B2AF0D1D0FD62B00E76071 /* ViewController.m in Sources */,
 				E9CC6DD31D173C17003EEB08 /* ListStoryViewController.m in Sources */,
 				E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Category : NSObject
+@interface xCategory : NSObject
 @property NSString *title;
 @property NSString *url;
 @end
