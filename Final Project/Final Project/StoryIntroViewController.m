@@ -13,10 +13,10 @@
 @end
 
 @implementation StoryIntroViewController
--(void) loadListStorys:(NSString*)UrlString storyName:(NSString *)storyNameXpathQueryString currentChap:(NSString *)currentChapXpathQueryString author:(NSString *)authorXpathQueryString cover:(NSString *)coverXpathQueryString {
+-(void) loadListStorys:(NSString*)urlString storyName:(NSString *)storyNameXpathQueryString currentChap:(NSString *)currentChapXpathQueryString author:(NSString *)authorXpathQueryString cover:(NSString *)coverXpathQueryString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
     //Story'name and Url
-    NSArray *storyNameNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
+    NSArray *storyNameNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                                  withXpathQueryString:storyNameXpathQueryString];
     for (TFHppleElement *element in storyNameNodes) {
         StoryName *storyName = [[StoryName alloc] init];
@@ -27,7 +27,7 @@
         storyIntro.storyName = storyName;
     }
     //Current chap
-    NSArray *currentChapNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
+    NSArray *currentChapNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                                    withXpathQueryString:currentChapXpathQueryString];
     int i=0;
     for (TFHppleElement *element in currentChapNodes) {
@@ -46,7 +46,7 @@
     }
     i = 0;
     //Author
-    NSArray *authorNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
+    NSArray *authorNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                               withXpathQueryString:authorXpathQueryString];
     for (TFHppleElement *element in authorNodes) {
         Author *author = [[Author alloc] init];
@@ -63,7 +63,7 @@
     }
     i = 0;
     //Cover
-    NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
+    NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                              withXpathQueryString:coverXpathQueryString];
     for (TFHppleElement *element in coverNodes) {
         Cover *cover = [[Cover alloc] init];
@@ -110,15 +110,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    ListChapViewController *listChapVCL = [sb instantiateViewControllerWithIdentifier:@"4"];
+    ListChapViewController *listChapVCL = [sb instantiateViewControllerWithIdentifier:@"ListChapViewController"];
     StoryIntroduce *storyOfThisCell = [self.storyObjects objectAtIndex:indexPath.row];
-    NSString *UrlString = storyOfThisCell.storyName.url;
+    NSString *urlString = storyOfThisCell.storyName.url;
     NSString *summaryContentXpathQueryString = @"//div[@class='desc-text']";
     NSString *ratingXpathQueryString = @"//span[@itemprop='ratingValue']";
     NSString *chapterNameXpathQueryString = @"//ul[@class='list-chapter']/li/a";
-    listChapVCL.urlString = UrlString;
-    [listChapVCL loadListChap:UrlString chapterName:chapterNameXpathQueryString];
-    [listChapVCL loadSummary:UrlString summaryContent:summaryContentXpathQueryString rating:ratingXpathQueryString];
+    listChapVCL.urlString = urlString;
+    [listChapVCL loadListChap:urlString chapterName:chapterNameXpathQueryString];
+    [listChapVCL loadSummary:urlString summaryContent:summaryContentXpathQueryString rating:ratingXpathQueryString];
     //[self.navigationController pushViewController:listChapVCL animated:YES];
     [self presentViewController:listChapVCL animated:YES completion:^{
     }];
@@ -127,6 +127,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

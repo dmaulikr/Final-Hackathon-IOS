@@ -13,10 +13,10 @@
 @end
 
 @implementation ListChapViewController
--(void) loadListChap:(NSString*)UrlString chapterName:(NSString *)chapterNameXpathQueryString {
+-(void) loadListChap:(NSString*)urlString chapterName:(NSString *)chapterNameXpathQueryString {
     NSMutableArray *newChaps = [[NSMutableArray alloc] init];
     //Chapter Name and Url
-    NSArray *chapterNameNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
+    NSArray *chapterNameNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                                    withXpathQueryString:chapterNameXpathQueryString];
     for (TFHppleElement *element in chapterNameNodes) {
         ChapterName *chapterName = [[ChapterName alloc] init];
@@ -38,7 +38,6 @@
         NSString *ratingXpathQueryString2 = @"//span[@itemprop='ratingValue']";
         NSString *summaryContentXpathQueryString2 = @"//div[@class='desc-text desc-text-full']";
         [self loadSummary:self.urlString summaryContent:summaryContentXpathQueryString2 rating:ratingXpathQueryString2];
-        NSLog(@"%@",self.urlString);
     } else {
         for (TFHppleElement *element in summaryContentNodes) {
             SummaryContent *summaryContent = [[SummaryContent alloc] init];
@@ -70,7 +69,6 @@
                     }
                 }
             }
-            NSLog(@"%@",summaryContent.textContent);
             Summary *summary = [[Summary alloc] init];
             [newSummarys addObject:summary];
             summary.summaryContent = summaryContent;
@@ -113,11 +111,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"5"];
+    ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"ChapContentViewController"];
     ChapDetail *chapOfThisCell = [self.chapDetailObjects objectAtIndex:indexPath.row];
-    NSString *UrlString = chapOfThisCell.chapterName.url;
+    NSString *urlString = chapOfThisCell.chapterName.url;
+    NSString *btnXpathQueryString = @"//a[@class='btn btn-success']";
     NSString *chapContentXpathQueryString = @"//div[@class='chapter-content']";
-    [chapContentVCL loadChapContent:UrlString chapContent:chapContentXpathQueryString];
+    chapContentVCL.urlString = urlString;
+    [chapContentVCL loadChapContent:urlString chapContent:chapContentXpathQueryString];
+    [chapContentVCL loadChapContent:urlString nextBtn:btnXpathQueryString];
+    [chapContentVCL loadChapContent:urlString previewBtn:btnXpathQueryString];
     //[self.navigationController pushViewController:chapContentVCL animated:YES];
     [self presentViewController:chapContentVCL animated:YES completion:^{
     }];
@@ -125,6 +127,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.tableFooterView = [[UIView alloc] init];
     Summary *summary = [[Summary alloc] init];
     summary = [self.summaryObjects objectAtIndex:0];
     self.lblSummaryContent.text = summary.summaryContent.textContent;

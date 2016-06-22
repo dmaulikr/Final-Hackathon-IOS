@@ -7,13 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChapContent.h"
 #import <TFHppleElement.h>
+#import "ChapContent.h"
+#import "NextBtn.h"
+#import "PreviewBtn.h"
 #import "APIClient.h"
 #import "CategoryViewController.h"
 @interface ChapContentViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *lblChapContent;
-@property NSMutableArray *chapContentObjects;
 - (IBAction)clickHomeBtn:(id)sender;
--(void) loadChapContent:(NSString*)UrlString chapContent:(NSString*)chapContentXpathQueryString;
+- (IBAction)clickNextBtn:(id)sender;
+- (IBAction)clickPreviewBtn:(id)sender;
+@property NSMutableArray *chapContentObjects;
+@property NSMutableArray *nextBtnObjects;
+@property NSMutableArray *previewBtnObjects;
+-(void) loadChapContent:(NSString*)urlString nextBtn:(NSString*)nextBtnXpathQueryString;
+-(void) loadChapContent:(NSString*)urlString previewBtn:(NSString*)previewBtnXpathQueryString;
+-(void) loadChapContent:(NSString*)urlString chapContent:(NSString*)chapContentXpathQueryString;
+@property NSString *urlString;
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "ChapContentViewController.h"
-
 @interface ChapContentViewController ()
 
 @end
@@ -15,7 +14,7 @@
 @implementation ChapContentViewController
 - (IBAction)clickHomeBtn:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    CategoryViewController *categoryVCL = [sb instantiateViewControllerWithIdentifier:@"2"];
+    CategoryViewController *categoryVCL = [sb instantiateViewControllerWithIdentifier:@"CategoryViewController"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [self presentViewController:categoryVCL animated:YES completion:^{
@@ -24,10 +23,83 @@
     });
 }
 
--(void) loadChapContent:(NSString *)UrlString chapContent:(NSString *)chapContentXpathQueryString {
+- (IBAction)clickNextBtn:(id)sender {
+    if(self.nextBtnObjects.count > 0) {
+        NSString *btnXpathQueryString = @"//a[@class='btn btn-success']";
+        NSString *chapContentXpathQueryString = @"//div[@class='chapter-content']";
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSLog(@"%@",self.urlString);
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"ChapContentViewController"];
+            NextBtn *nextBtn = [[NextBtn alloc] init];
+            nextBtn = [self.nextBtnObjects objectAtIndex:0];
+            NSString *urlString = nextBtn.url;
+            chapContentVCL.urlString = urlString;
+            NSLog(@"%@",chapContentVCL.urlString);
+            [chapContentVCL loadChapContent:urlString chapContent:chapContentXpathQueryString];
+            [chapContentVCL loadChapContent:urlString nextBtn:btnXpathQueryString];
+            [chapContentVCL loadChapContent:urlString previewBtn:btnXpathQueryString];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:chapContentVCL animated:YES completion:^{
+                }];
+            });
+        });
+    }
+}
+
+- (IBAction)clickPreviewBtn:(id)sender {
+    if(self.previewBtnObjects.count > 0) {
+        NSString *btnXpathQueryString = @"//a[@class='btn btn-success']";
+        NSString *chapContentXpathQueryString = @"//div[@class='chapter-content']";
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSLog(@"%@",self.urlString);
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"ChapContentViewController"];
+            PreviewBtn *previewBtn = [[PreviewBtn alloc] init];
+            previewBtn = [self.previewBtnObjects objectAtIndex:0];
+            NSString *urlString = previewBtn.url;
+            chapContentVCL.urlString = urlString;
+            NSLog(@"%@",chapContentVCL.urlString);
+            [chapContentVCL loadChapContent:urlString chapContent:chapContentXpathQueryString];
+            [chapContentVCL loadChapContent:urlString previewBtn:btnXpathQueryString];
+            [chapContentVCL loadChapContent:urlString nextBtn:btnXpathQueryString];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:chapContentVCL animated:YES completion:^{
+                }];
+            });
+        });
+    }
+}
+-(void) loadChapContent:(NSString *)urlString previewBtn:(NSString *)previewBtnXpathQueryString {
+    NSMutableArray *newPreviewBtns = [[NSMutableArray alloc] init];
+    NSArray *previewBtnNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                               withXpathQueryString:previewBtnXpathQueryString];
+    for (TFHppleElement *element in previewBtnNodes) {
+        if([[element objectForKey:@"id"] isEqualToString:@"prev_chap"]) {
+            PreviewBtn *previewBtn = [[PreviewBtn alloc] init];
+            [newPreviewBtns addObject:previewBtn];
+            previewBtn.url = [element objectForKey:@"href"];
+        }
+    }
+    self.previewBtnObjects = newPreviewBtns;
+}
+-(void) loadChapContent:(NSString*)urlString nextBtn:(NSString*)nextBtnXpathQueryString {
+    NSMutableArray *newNextBtns = [[NSMutableArray alloc] init];
+    NSArray *nextBtnNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                               withXpathQueryString:nextBtnXpathQueryString];
+    for (TFHppleElement *element in nextBtnNodes) {
+        if([[element objectForKey:@"id"] isEqualToString:@"next_chap"]) {
+            NextBtn *nextBtn = [[NextBtn alloc] init];
+            [newNextBtns addObject:nextBtn];
+            nextBtn.url = [element objectForKey:@"href"];
+        }
+    }
+    self.nextBtnObjects = newNextBtns;
+}
+-(void) loadChapContent:(NSString *)urlString chapContent:(NSString *)chapContentXpathQueryString {
     NSMutableArray *newChapContents = [[NSMutableArray alloc] init];
     //Chapter Name and Url
-    NSArray *chapContentNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
+    NSArray *chapContentNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                                    withXpathQueryString:chapContentXpathQueryString];
     for (TFHppleElement *element in chapContentNodes) {
         ChapContent *chapContent = [[ChapContent alloc] init];
@@ -54,14 +126,12 @@
                                         }
                                     }
                                 }
-                                
                             }
                         }
                     }
                 }
             }
         }
-        NSLog(@"%@",chapContent.textContent);
     }
     self.chapContentObjects = newChapContents;
 }
@@ -69,6 +139,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     if(self.chapContentObjects.count > 0) {
         ChapContent *chapContent = [[ChapContent alloc] init];
         chapContent = [self.chapContentObjects objectAtIndex:0];
