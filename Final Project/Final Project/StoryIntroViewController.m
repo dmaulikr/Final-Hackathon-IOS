@@ -13,10 +13,9 @@
 @end
 
 @implementation StoryIntroViewController
--(void) loadListStorys:(NSString*)UrlString {
+-(void) loadListStorys:(NSString*)UrlString storyName:(NSString *)storyNameXpathQueryString currentChap:(NSString *)currentChapXpathQueryString author:(NSString *)authorXpathQueryString cover:(NSString *)coverXpathQueryString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
     //Story'name and Url
-    NSString *storyNameXpathQueryString = @"//h3[@class='truyen-title']/a";
     NSArray *storyNameNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                                  withXpathQueryString:storyNameXpathQueryString];
     for (TFHppleElement *element in storyNameNodes) {
@@ -28,7 +27,6 @@
         storyIntro.storyName = storyName;
     }
     //Current chap
-    NSString *currentChapXpathQueryString = @"//div[@class='col-xs-2 text-info']/div/a";
     NSArray *currentChapNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                                    withXpathQueryString:currentChapXpathQueryString];
     int i=0;
@@ -48,12 +46,10 @@
     }
     i = 0;
     //Author
-    NSString *authorXpathQueryString = @"//span[@class='author']";
     NSArray *authorNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                               withXpathQueryString:authorXpathQueryString];
     for (TFHppleElement *element in authorNodes) {
         Author *author = [[Author alloc] init];
-        
         for (TFHppleElement *child in element.children) {
             if([child.tagName isEqualToString:@"span"]) continue;
             else {
@@ -67,7 +63,6 @@
     }
     i = 0;
     //Cover
-    NSString *coverXpathQueryString = @"//div[@class='col-xs-3']/div";
     NSArray *coverNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
                                              withXpathQueryString:coverXpathQueryString];
     for (TFHppleElement *element in coverNodes) {
@@ -115,11 +110,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    self.listChapVCL = [sb instantiateViewControllerWithIdentifier:@"4"];
+    ListChapViewController *listChapVCL = [sb instantiateViewControllerWithIdentifier:@"4"];
     StoryIntroduce *storyOfThisCell = [self.storyObjects objectAtIndex:indexPath.row];
-    [self.listChapVCL loadListChap:storyOfThisCell.storyName.url];
-    [self.listChapVCL loadSummary:storyOfThisCell.storyName.url];
-    [self.navigationController pushViewController:self.listChapVCL animated:YES];
+    NSString *UrlString = storyOfThisCell.storyName.url;
+    NSString *summaryContentXpathQueryString = @"//div[@class='desc-text']";
+    NSString *ratingXpathQueryString = @"//span[@itemprop='ratingValue']";
+    NSString *chapterNameXpathQueryString = @"//ul[@class='list-chapter']/li/a";
+    listChapVCL.urlString = UrlString;
+    [listChapVCL loadListChap:UrlString chapterName:chapterNameXpathQueryString];
+    [listChapVCL loadSummary:UrlString summaryContent:summaryContentXpathQueryString rating:ratingXpathQueryString];
+    //[self.navigationController pushViewController:listChapVCL animated:YES];
+    [self presentViewController:listChapVCL animated:YES completion:^{
+    }];
 }
 
 - (void)viewDidLoad {
@@ -129,6 +131,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 

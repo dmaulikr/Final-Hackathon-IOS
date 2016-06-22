@@ -15,6 +15,4 @@
 @interface CategoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *categoryObjects;
-
-@property StoryIntroViewController *storyIntroVCL;
 @end

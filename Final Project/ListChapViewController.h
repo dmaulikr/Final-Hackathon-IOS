@@ -13,13 +13,14 @@
 #import "Summary.h"
 #import "APIClient.h"
 #import "ChapContentViewController.h"
+
 @interface ListChapViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property ChapContentViewController *chapContentVCL;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *chapDetailObjects;
 @property NSMutableArray *summaryObjects;
--(void) loadListChap:(NSString*)UrlString;
--(void) loadSummary:(NSString*)UrlString;
+-(void) loadListChap:(NSString*)UrlString chapterName:(NSString*)chapterNameXpathQueryString;
+-(void) loadSummary:(NSString*)UrlString summaryContent:(NSString*)summaryContentXpathQueryString rating:(NSString*)ratingXpathQueryString;
 @property (weak, nonatomic) IBOutlet UILabel *lblSummaryContent;
 @property (weak, nonatomic) IBOutlet UILabel *lblRating;
+@property NSString *urlString;
 @end

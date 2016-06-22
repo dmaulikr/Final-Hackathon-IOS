@@ -9,7 +9,6 @@
 #import "CategoryViewController.h"
 
 @interface CategoryViewController ()
-
 @end
 
 @implementation CategoryViewController
@@ -43,10 +42,17 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    self.storyIntroVCL = [sb instantiateViewControllerWithIdentifier:@"3"];
+    StoryIntroViewController *storyIntroVCL = [sb instantiateViewControllerWithIdentifier:@"3"];
     Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
-    [self.storyIntroVCL loadListStorys:categoryOfThisCell.url];
-    [self.navigationController pushViewController:_storyIntroVCL animated:YES];
+    NSString *urlString = categoryOfThisCell.url;
+    NSString *storyNameXpathQueryString = @"//h3[@class='truyen-title']/a";
+    NSString *currentChapXpathQueryString = @"//div[@class='col-xs-2 text-info']/div/a";
+    NSString *authorXpathQueryString = @"//span[@class='author']";
+    NSString *coverXpathQueryString = @"//div[@class='col-xs-3']/div";
+    [storyIntroVCL loadListStorys:urlString storyName:storyNameXpathQueryString currentChap:currentChapXpathQueryString author:authorXpathQueryString cover:coverXpathQueryString];
+    //[self.navigationController pushViewController:storyIntroVCL animated:YES];
+    [self presentViewController:storyIntroVCL animated:YES completion:^{
+    }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,7 +67,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
  #pragma mark - Navigation
  

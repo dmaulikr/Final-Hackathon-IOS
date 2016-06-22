@@ -13,9 +13,11 @@
 #import "StoryIntroduce.h"
 #import "ListChapViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+
 @interface StoryIntroViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property NSMutableArray *storyObjects;
--(void) loadListStorys:(NSString*)UrlString;
-@property ListChapViewController *listChapVCL;
+-(void) loadListStorys:(NSString*)UrlString storyName:(NSString*)storyNameXpathQueryString currentChap:(NSString*)currentChapXpathQueryString author:(NSString*)authorXpathQueryString cover:(NSString*)coverXpathQueryString;
 @end
+

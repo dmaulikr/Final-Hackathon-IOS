@@ -10,8 +10,10 @@
 #import "ChapContent.h"
 #import <TFHppleElement.h>
 #import "APIClient.h"
+#import "CategoryViewController.h"
 @interface ChapContentViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *lblChapContent;
 @property NSMutableArray *chapContentObjects;
--(void) loadChapContent:(NSString*)UrlString;
+- (IBAction)clickHomeBtn:(id)sender;
+-(void) loadChapContent:(NSString*)UrlString chapContent:(NSString*)chapContentXpathQueryString;
 @end
