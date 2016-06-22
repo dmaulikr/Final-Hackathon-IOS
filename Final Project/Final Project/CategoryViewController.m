@@ -42,7 +42,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    StoryIntroViewController *storyIntroVCL = [sb instantiateViewControllerWithIdentifier:@"StoryIntroViewController"];
+    ListStoryViewController *storyIntroVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
     Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
     NSString *urlString = categoryOfThisCell.url;
     NSString *storyNameXpathQueryString = @"//h3[@class='truyen-title']/a";

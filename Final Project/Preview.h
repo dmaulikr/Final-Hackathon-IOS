@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PreviewBtn : NSObject
+@interface Preview : NSObject
 @property NSString *url;
 @end

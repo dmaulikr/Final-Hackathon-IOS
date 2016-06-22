@@ -6,8 +6,8 @@
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
-#import "PreviewBtn.h"
+#import "Preview.h"
 
-@implementation PreviewBtn
+@implementation Preview
 
 @end

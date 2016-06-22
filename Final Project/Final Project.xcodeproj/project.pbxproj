@@ -28,7 +28,7 @@
 		E9CC6DC71D171A75003EEB08 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC61D171A75003EEB08 /* APIClient.m */; };
 		E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC91D1732C8003EEB08 /* StoryName.m */; };
 		E9CC6DCD1D17330B003EEB08 /* Cover.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DCC1D17330B003EEB08 /* Cover.m */; };
-		E9CC6DD31D173C17003EEB08 /* StoryIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD21D173C17003EEB08 /* StoryIntroViewController.m */; };
+		E9CC6DD31D173C17003EEB08 /* ListStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD21D173C17003EEB08 /* ListStoryViewController.m */; };
 		E9CC6DD61D173CFB003EEB08 /* CustomCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD51D173CFB003EEB08 /* CustomCell2.m */; };
 		E9CC6DD91D1741CD003EEB08 /* CurrentChap.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DD81D1741CD003EEB08 /* CurrentChap.m */; };
 		E9CC6DDC1D174642003EEB08 /* StoryIntroduce.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DDB1D174642003EEB08 /* StoryIntroduce.m */; };
@@ -36,8 +36,8 @@
 		E9CC6DE81D17E3DB003EEB08 /* CustomCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DE71D17E3DB003EEB08 /* CustomCell3.m */; };
 		E9CC6DF41D17E4B9003EEB08 /* ChapterName.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DF31D17E4B9003EEB08 /* ChapterName.m */; };
 		E9CC6DF71D17E4F3003EEB08 /* ChapDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DF61D17E4F3003EEB08 /* ChapDetail.m */; };
-		E9FDCA351D1A6D80007734E8 /* NextBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FDCA341D1A6D80007734E8 /* NextBtn.m */; };
-		E9FDCA401D1A9DFD007734E8 /* PreviewBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FDCA3F1D1A9DFD007734E8 /* PreviewBtn.m */; };
+		E9FDCA351D1A6D80007734E8 /* Next.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FDCA341D1A6D80007734E8 /* Next.m */; };
+		E9FDCA401D1A9DFD007734E8 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FDCA3F1D1A9DFD007734E8 /* Preview.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,8 +80,8 @@
 		E9CC6DC91D1732C8003EEB08 /* StoryName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryName.m; sourceTree = "<group>"; };
 		E9CC6DCB1D17330B003EEB08 /* Cover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cover.h; sourceTree = "<group>"; };
 		E9CC6DCC1D17330B003EEB08 /* Cover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cover.m; sourceTree = "<group>"; };
-		E9CC6DD11D173C17003EEB08 /* StoryIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryIntroViewController.h; path = "Final Project/StoryIntroViewController.h"; sourceTree = "<group>"; };
-		E9CC6DD21D173C17003EEB08 /* StoryIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryIntroViewController.m; path = "Final Project/StoryIntroViewController.m"; sourceTree = "<group>"; };
+		E9CC6DD11D173C17003EEB08 /* ListStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListStoryViewController.h; path = "Final Project/ListStoryViewController.h"; sourceTree = "<group>"; };
+		E9CC6DD21D173C17003EEB08 /* ListStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListStoryViewController.m; path = "Final Project/ListStoryViewController.m"; sourceTree = "<group>"; };
 		E9CC6DD41D173CFB003EEB08 /* CustomCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell2.h; path = "Final Project/CustomCell2.h"; sourceTree = "<group>"; };
 		E9CC6DD51D173CFB003EEB08 /* CustomCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell2.m; path = "Final Project/CustomCell2.m"; sourceTree = "<group>"; };
 		E9CC6DD71D1741CD003EEB08 /* CurrentChap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentChap.h; sourceTree = "<group>"; };
@@ -96,10 +96,10 @@
 		E9CC6DF31D17E4B9003EEB08 /* ChapterName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterName.m; sourceTree = "<group>"; };
 		E9CC6DF51D17E4F3003EEB08 /* ChapDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapDetail.h; sourceTree = "<group>"; };
 		E9CC6DF61D17E4F3003EEB08 /* ChapDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapDetail.m; sourceTree = "<group>"; };
-		E9FDCA331D1A6D80007734E8 /* NextBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextBtn.h; sourceTree = "<group>"; };
-		E9FDCA341D1A6D80007734E8 /* NextBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextBtn.m; sourceTree = "<group>"; };
-		E9FDCA3E1D1A9DFD007734E8 /* PreviewBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewBtn.h; sourceTree = "<group>"; };
-		E9FDCA3F1D1A9DFD007734E8 /* PreviewBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewBtn.m; sourceTree = "<group>"; };
+		E9FDCA331D1A6D80007734E8 /* Next.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Next.h; sourceTree = "<group>"; };
+		E9FDCA341D1A6D80007734E8 /* Next.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Next.m; sourceTree = "<group>"; };
+		E9FDCA3E1D1A9DFD007734E8 /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preview.h; sourceTree = "<group>"; };
+		E9FDCA3F1D1A9DFD007734E8 /* Preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preview.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +115,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9012C811D1AA735002C8CD1 /* NextPageBtn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NextPageBtn;
+			sourceTree = "<group>";
+		};
 		E9B2AEF91D0FD62B00E76071 = {
 			isa = PBXGroup;
 			children = (
@@ -162,9 +169,9 @@
 		E9BA4D9A1D19239D0006FEF5 /* ChapContent */ = {
 			isa = PBXGroup;
 			children = (
-				E9FDCA3D1D1A9DCB007734E8 /* PreviewButton */,
+				E9FDCA3D1D1A9DCB007734E8 /* Preview */,
 				E9FDCA311D1A6CFB007734E8 /* ChapContent */,
-				E9FDCA321D1A6D32007734E8 /* NextButton */,
+				E9FDCA321D1A6D32007734E8 /* Next */,
 				E9BA4D9B1D1923DF0006FEF5 /* ChapContentViewController.h */,
 				E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */,
 			);
@@ -211,7 +218,7 @@
 			children = (
 				E9BA4D9A1D19239D0006FEF5 /* ChapContent */,
 				E9CC6DDE1D174707003EEB08 /* Category */,
-				E9CC6DDD1D1746E2003EEB08 /* IntroduceStory */,
+				E9CC6DDD1D1746E2003EEB08 /* ListStory */,
 				E9CC6DE21D17DB65003EEB08 /* ListChap */,
 				E9CC6DC51D171A75003EEB08 /* APIClient.h */,
 				E9CC6DC61D171A75003EEB08 /* APIClient.m */,
@@ -219,18 +226,19 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		E9CC6DDD1D1746E2003EEB08 /* IntroduceStory */ = {
+		E9CC6DDD1D1746E2003EEB08 /* ListStory */ = {
 			isa = PBXGroup;
 			children = (
+				E9012C811D1AA735002C8CD1 /* NextPageBtn */,
 				E9BA4DA01D1926C50006FEF5 /* StoryIntroduce */,
-				E9CC6DD11D173C17003EEB08 /* StoryIntroViewController.h */,
-				E9CC6DD21D173C17003EEB08 /* StoryIntroViewController.m */,
+				E9CC6DD11D173C17003EEB08 /* ListStoryViewController.h */,
+				E9CC6DD21D173C17003EEB08 /* ListStoryViewController.m */,
 				E9CC6DD41D173CFB003EEB08 /* CustomCell2.h */,
 				E9CC6DD51D173CFB003EEB08 /* CustomCell2.m */,
 				E9CC6DDA1D174642003EEB08 /* StoryIntroduce.h */,
 				E9CC6DDB1D174642003EEB08 /* StoryIntroduce.m */,
 			);
-			name = IntroduceStory;
+			name = ListStory;
 			sourceTree = "<group>";
 		};
 		E9CC6DDE1D174707003EEB08 /* Category */ = {
@@ -280,22 +288,22 @@
 			name = ChapContent;
 			sourceTree = "<group>";
 		};
-		E9FDCA321D1A6D32007734E8 /* NextButton */ = {
+		E9FDCA321D1A6D32007734E8 /* Next */ = {
 			isa = PBXGroup;
 			children = (
-				E9FDCA331D1A6D80007734E8 /* NextBtn.h */,
-				E9FDCA341D1A6D80007734E8 /* NextBtn.m */,
+				E9FDCA331D1A6D80007734E8 /* Next.h */,
+				E9FDCA341D1A6D80007734E8 /* Next.m */,
 			);
-			name = NextButton;
+			name = Next;
 			sourceTree = "<group>";
 		};
-		E9FDCA3D1D1A9DCB007734E8 /* PreviewButton */ = {
+		E9FDCA3D1D1A9DCB007734E8 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
-				E9FDCA3E1D1A9DFD007734E8 /* PreviewBtn.h */,
-				E9FDCA3F1D1A9DFD007734E8 /* PreviewBtn.m */,
+				E9FDCA3E1D1A9DFD007734E8 /* Preview.h */,
+				E9FDCA3F1D1A9DFD007734E8 /* Preview.m */,
 			);
-			name = PreviewButton;
+			name = Preview;
 			sourceTree = "<group>";
 		};
 		EF2BCE7D77037AEE584687C9 /* Frameworks */ = {
@@ -441,21 +449,21 @@
 				E90AF47F1D183AC70047F5B6 /* Rating.m in Sources */,
 				E9CC6DC41D17166B003EEB08 /* Category.m in Sources */,
 				E9B2AF0D1D0FD62B00E76071 /* ViewController.m in Sources */,
-				E9CC6DD31D173C17003EEB08 /* StoryIntroViewController.m in Sources */,
+				E9CC6DD31D173C17003EEB08 /* ListStoryViewController.m in Sources */,
 				E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */,
 				E9B2AF0A1D0FD62B00E76071 /* AppDelegate.m in Sources */,
 				E90AF4821D183B540047F5B6 /* ChapContent.m in Sources */,
 				E90AF4791D1838B40047F5B6 /* Author.m in Sources */,
 				E9CC6DDC1D174642003EEB08 /* StoryIntroduce.m in Sources */,
 				E9CC6DE81D17E3DB003EEB08 /* CustomCell3.m in Sources */,
-				E9FDCA351D1A6D80007734E8 /* NextBtn.m in Sources */,
+				E9FDCA351D1A6D80007734E8 /* Next.m in Sources */,
 				E90AF47C1D1839CE0047F5B6 /* Summary.m in Sources */,
 				E9BA4D9D1D1923DF0006FEF5 /* ChapContentViewController.m in Sources */,
 				E9B2AF131D0FD62B00E76071 /* Final_Project.xcdatamodeld in Sources */,
 				E90AF4851D183B670047F5B6 /* SummaryContent.m in Sources */,
 				E9CC6DC71D171A75003EEB08 /* APIClient.m in Sources */,
 				E9CC6DF71D17E4F3003EEB08 /* ChapDetail.m in Sources */,
-				E9FDCA401D1A9DFD007734E8 /* PreviewBtn.m in Sources */,
+				E9FDCA401D1A9DFD007734E8 /* Preview.m in Sources */,
 				E9CC6DBE1D16ADF2003EEB08 /* CustomCell.m in Sources */,
 				E9CC6DF41D17E4B9003EEB08 /* ChapterName.m in Sources */,
 				E9CC6DE51D17DB8C003EEB08 /* ListChapViewController.m in Sources */,

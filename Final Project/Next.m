@@ -6,8 +6,8 @@
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
-#import "NextBtn.h"
+#import "Next.h"
 
-@implementation NextBtn
+@implementation Next
 
 @end

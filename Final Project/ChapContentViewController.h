@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <TFHppleElement.h>
 #import "ChapContent.h"
-#import "NextBtn.h"
-#import "PreviewBtn.h"
+#import "Next.h"
+#import "Preview.h"
 #import "APIClient.h"
 #import "CategoryViewController.h"
 @interface ChapContentViewController : UIViewController
@@ -19,10 +19,10 @@
 - (IBAction)clickNextBtn:(id)sender;
 - (IBAction)clickPreviewBtn:(id)sender;
 @property NSMutableArray *chapContentObjects;
-@property NSMutableArray *nextBtnObjects;
-@property NSMutableArray *previewBtnObjects;
--(void) loadChapContent:(NSString*)urlString nextBtn:(NSString*)nextBtnXpathQueryString;
--(void) loadChapContent:(NSString*)urlString previewBtn:(NSString*)previewBtnXpathQueryString;
+@property NSMutableArray *nextObjects;
+@property NSMutableArray *previewObjects;
+-(void) loadChapContent:(NSString*)urlString next:(NSString*)nextXpathQueryString;
+-(void) loadChapContent:(NSString*)urlString preview:(NSString*)previewXpathQueryString;
 -(void) loadChapContent:(NSString*)urlString chapContent:(NSString*)chapContentXpathQueryString;
 @property NSString *urlString;
 @end

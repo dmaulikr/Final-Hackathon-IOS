@@ -24,21 +24,21 @@
 }
 
 - (IBAction)clickNextBtn:(id)sender {
-    if(self.nextBtnObjects.count > 0) {
+    if(self.nextObjects.count > 0) {
         NSString *btnXpathQueryString = @"//a[@class='btn btn-success']";
         NSString *chapContentXpathQueryString = @"//div[@class='chapter-content']";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSLog(@"%@",self.urlString);
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
             ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"ChapContentViewController"];
-            NextBtn *nextBtn = [[NextBtn alloc] init];
-            nextBtn = [self.nextBtnObjects objectAtIndex:0];
-            NSString *urlString = nextBtn.url;
+            Next *next = [[Next alloc] init];
+            next = [self.nextObjects objectAtIndex:0];
+            NSString *urlString = next.url;
             chapContentVCL.urlString = urlString;
             NSLog(@"%@",chapContentVCL.urlString);
             [chapContentVCL loadChapContent:urlString chapContent:chapContentXpathQueryString];
-            [chapContentVCL loadChapContent:urlString nextBtn:btnXpathQueryString];
-            [chapContentVCL loadChapContent:urlString previewBtn:btnXpathQueryString];
+            [chapContentVCL loadChapContent:urlString next:btnXpathQueryString];
+            [chapContentVCL loadChapContent:urlString preview:btnXpathQueryString];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self presentViewController:chapContentVCL animated:YES completion:^{
                 }];
@@ -48,21 +48,21 @@
 }
 
 - (IBAction)clickPreviewBtn:(id)sender {
-    if(self.previewBtnObjects.count > 0) {
+    if(self.previewObjects.count > 0) {
         NSString *btnXpathQueryString = @"//a[@class='btn btn-success']";
         NSString *chapContentXpathQueryString = @"//div[@class='chapter-content']";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSLog(@"%@",self.urlString);
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
             ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"ChapContentViewController"];
-            PreviewBtn *previewBtn = [[PreviewBtn alloc] init];
-            previewBtn = [self.previewBtnObjects objectAtIndex:0];
-            NSString *urlString = previewBtn.url;
+            Preview *preview = [[Preview alloc] init];
+            preview = [self.previewObjects objectAtIndex:0];
+            NSString *urlString = preview.url;
             chapContentVCL.urlString = urlString;
             NSLog(@"%@",chapContentVCL.urlString);
             [chapContentVCL loadChapContent:urlString chapContent:chapContentXpathQueryString];
-            [chapContentVCL loadChapContent:urlString previewBtn:btnXpathQueryString];
-            [chapContentVCL loadChapContent:urlString nextBtn:btnXpathQueryString];
+            [chapContentVCL loadChapContent:urlString preview:btnXpathQueryString];
+            [chapContentVCL loadChapContent:urlString next:btnXpathQueryString];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self presentViewController:chapContentVCL animated:YES completion:^{
                 }];
@@ -70,31 +70,31 @@
         });
     }
 }
--(void) loadChapContent:(NSString *)urlString previewBtn:(NSString *)previewBtnXpathQueryString {
-    NSMutableArray *newPreviewBtns = [[NSMutableArray alloc] init];
-    NSArray *previewBtnNodes = [[APIClient sharedInstance] loadFromUrl:urlString
-                                               withXpathQueryString:previewBtnXpathQueryString];
-    for (TFHppleElement *element in previewBtnNodes) {
+-(void) loadChapContent:(NSString *)urlString preview:(NSString *)previewXpathQueryString {
+    NSMutableArray *newPreviews = [[NSMutableArray alloc] init];
+    NSArray *previewNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                               withXpathQueryString:previewXpathQueryString];
+    for (TFHppleElement *element in previewNodes) {
         if([[element objectForKey:@"id"] isEqualToString:@"prev_chap"]) {
-            PreviewBtn *previewBtn = [[PreviewBtn alloc] init];
-            [newPreviewBtns addObject:previewBtn];
-            previewBtn.url = [element objectForKey:@"href"];
+            Preview *preview = [[Preview alloc] init];
+            [newPreviews addObject:preview];
+            preview.url = [element objectForKey:@"href"];
         }
     }
-    self.previewBtnObjects = newPreviewBtns;
+    self.previewObjects = newPreviews;
 }
--(void) loadChapContent:(NSString*)urlString nextBtn:(NSString*)nextBtnXpathQueryString {
-    NSMutableArray *newNextBtns = [[NSMutableArray alloc] init];
-    NSArray *nextBtnNodes = [[APIClient sharedInstance] loadFromUrl:urlString
-                                               withXpathQueryString:nextBtnXpathQueryString];
-    for (TFHppleElement *element in nextBtnNodes) {
+-(void) loadChapContent:(NSString*)urlString next:(NSString*)nextXpathQueryString {
+    NSMutableArray *newNexts = [[NSMutableArray alloc] init];
+    NSArray *nextNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                               withXpathQueryString:nextXpathQueryString];
+    for (TFHppleElement *element in nextNodes) {
         if([[element objectForKey:@"id"] isEqualToString:@"next_chap"]) {
-            NextBtn *nextBtn = [[NextBtn alloc] init];
-            [newNextBtns addObject:nextBtn];
-            nextBtn.url = [element objectForKey:@"href"];
+            Next *next = [[Next alloc] init];
+            [newNexts addObject:next];
+            next.url = [element objectForKey:@"href"];
         }
     }
-    self.nextBtnObjects = newNextBtns;
+    self.nextObjects = newNexts;
 }
 -(void) loadChapContent:(NSString *)urlString chapContent:(NSString *)chapContentXpathQueryString {
     NSMutableArray *newChapContents = [[NSMutableArray alloc] init];

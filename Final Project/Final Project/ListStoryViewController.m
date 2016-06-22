@@ -6,13 +6,13 @@
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
-#import "StoryIntroViewController.h"
+#import "ListStoryViewController.h"
 
-@interface StoryIntroViewController ()
+@interface ListStoryViewController ()
 
 @end
 
-@implementation StoryIntroViewController
+@implementation ListStoryViewController
 -(void) loadListStorys:(NSString*)urlString storyName:(NSString *)storyNameXpathQueryString currentChap:(NSString *)currentChapXpathQueryString author:(NSString *)authorXpathQueryString cover:(NSString *)coverXpathQueryString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
     //Story'name and Url

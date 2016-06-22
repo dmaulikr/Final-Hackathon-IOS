@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NextBtn : NSObject
+@interface Next : NSObject
 @property NSString *url;
 @end

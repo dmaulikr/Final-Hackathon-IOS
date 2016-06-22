@@ -118,8 +118,8 @@
     NSString *chapContentXpathQueryString = @"//div[@class='chapter-content']";
     chapContentVCL.urlString = urlString;
     [chapContentVCL loadChapContent:urlString chapContent:chapContentXpathQueryString];
-    [chapContentVCL loadChapContent:urlString nextBtn:btnXpathQueryString];
-    [chapContentVCL loadChapContent:urlString previewBtn:btnXpathQueryString];
+    [chapContentVCL loadChapContent:urlString next:btnXpathQueryString];
+    [chapContentVCL loadChapContent:urlString preview:btnXpathQueryString];
     //[self.navigationController pushViewController:chapContentVCL animated:YES];
     [self presentViewController:chapContentVCL animated:YES completion:^{
     }];
