@@ -271,10 +271,16 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waa-mh-Vq9">
                                 <rect key="frame" x="41" y="20" width="115" height="47"/>
                                 <state key="normal" title="Preview page"/>
+                                <connections>
+                                    <action selector="clickPreviewPage:" destination="g45-xh-hyX" eventType="touchUpInside" id="of5-oI-dIt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO5-6t-CaK">
                                 <rect key="frame" x="256" y="20" width="88" height="47"/>
                                 <state key="normal" title="Next page"/>
+                                <connections>
+                                    <action selector="clickNextPage:" destination="g45-xh-hyX" eventType="touchUpInside" id="JPd-mE-nie"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -13,6 +13,7 @@
 @end
 
 @implementation ListStoryViewController
+
 -(void) loadListStorys:(NSString*)urlString storyName:(NSString *)storyNameXpathQueryString currentChap:(NSString *)currentChapXpathQueryString author:(NSString *)authorXpathQueryString cover:(NSString *)coverXpathQueryString {
     NSMutableArray *newStorys = [[NSMutableArray alloc] init];
     //Story'name and Url
@@ -123,11 +124,21 @@
     [self presentViewController:listChapVCL animated:YES completion:^{
     }];
 }
+-(NSString*) param:(int) x {
+    NSString *str = [self.urlString stringByAppendingString:[NSString stringWithFormat:@"trang-%d/",x]];
+    return str;
+}
+- (IBAction)clickPreviewPage:(id)sender {
+    
+}
 
+- (IBAction)clickNextPage:(id)sender {
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] init];
+    NSLog(@"%@",[self param:5]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,5 +156,4 @@
  // Pass the selected object to the new view controller.
  }
  */
-
 @end

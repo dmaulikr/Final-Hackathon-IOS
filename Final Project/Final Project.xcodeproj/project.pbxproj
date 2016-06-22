@@ -115,11 +115,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E9012C811D1AA735002C8CD1 /* NextPageBtn */ = {
+		E9012C811D1AA735002C8CD1 /* NextPage */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = NextPageBtn;
+			name = NextPage;
 			sourceTree = "<group>";
 		};
 		E9B2AEF91D0FD62B00E76071 = {
@@ -229,7 +229,7 @@
 		E9CC6DDD1D1746E2003EEB08 /* ListStory */ = {
 			isa = PBXGroup;
 			children = (
-				E9012C811D1AA735002C8CD1 /* NextPageBtn */,
+				E9012C811D1AA735002C8CD1 /* NextPage */,
 				E9BA4DA01D1926C50006FEF5 /* StoryIntroduce */,
 				E9CC6DD11D173C17003EEB08 /* ListStoryViewController.h */,
 				E9CC6DD21D173C17003EEB08 /* ListStoryViewController.m */,

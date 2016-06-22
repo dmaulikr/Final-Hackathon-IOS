@@ -14,9 +14,12 @@
 #import "ListChapViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 @interface ListStoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+- (IBAction)clickPreviewPage:(id)sender;
+- (IBAction)clickNextPage:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSString *urlString;
 @property NSMutableArray *storyObjects;
 -(void) loadListStorys:(NSString*)urlString storyName:(NSString*)storyNameXpathQueryString currentChap:(NSString*)currentChapXpathQueryString author:(NSString*)authorXpathQueryString cover:(NSString*)coverXpathQueryString;
+-(NSString*) param:(int) x;
 @end
 

@@ -42,17 +42,17 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    ListStoryViewController *storyIntroVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
+    ListStoryViewController *listStoryVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
     Category  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
     NSString *urlString = categoryOfThisCell.url;
     NSString *storyNameXpathQueryString = @"//h3[@class='truyen-title']/a";
     NSString *currentChapXpathQueryString = @"//div[@class='col-xs-2 text-info']/div/a";
     NSString *authorXpathQueryString = @"//span[@class='author']";
     NSString *coverXpathQueryString = @"//div[@class='col-xs-3']/div";
-    storyIntroVCL.urlString = urlString;
-    [storyIntroVCL loadListStorys:urlString storyName:storyNameXpathQueryString currentChap:currentChapXpathQueryString author:authorXpathQueryString cover:coverXpathQueryString];
+    listStoryVCL.urlString = urlString;
+    [listStoryVCL loadListStorys:urlString storyName:storyNameXpathQueryString currentChap:currentChapXpathQueryString author:authorXpathQueryString cover:coverXpathQueryString];
     //[self.navigationController pushViewController:storyIntroVCL animated:YES];
-    [self presentViewController:storyIntroVCL animated:YES completion:^{
+    [self presentViewController:listStoryVCL animated:YES completion:^{
     }];
 }
 - (void)viewDidLoad {
