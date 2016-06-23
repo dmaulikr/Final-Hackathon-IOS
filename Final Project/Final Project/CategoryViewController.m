@@ -53,11 +53,6 @@
     ListStoryViewController *listStoryVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
     [self presentViewController:listStoryVCL animated:YES completion:^{
     }];
-    UILabel *alret = [[UILabel alloc] initWithFrame:CGRectMake(listStoryVCL.view.frame.size.width/2, listStoryVCL.view.frame.size.height/2, 200, 100)];
-    alret.backgroundColor = [UIColor yellowColor];
-    alret.text = @"Loading please wait !";
-    [listStoryVCL.view addSubview:alret];
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         xCategory  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
         NSString *urlString = categoryOfThisCell.url;
@@ -68,8 +63,8 @@
         NSString *categorysXpathQueryString = @"//div[@class='item2_theloai']";
         
         NSString *currentPageXpathQueryString = @"//span[@class='current']";
-        NSString *previewPageXpathQueryString = @"//div[@class='col-xs-3']/div";
-        NSString *nextPageXpathQueryString = @"//div[@class='col-xs-3']/div";
+        NSString *previewPageXpathQueryString = @"//a[@class='previouspostslink']";
+        NSString *nextPageXpathQueryString = @"//a[@class='nextpostslink']";
         listStoryVCL.urlString = urlString;
         [listStoryVCL loadListStorys:(NSString*)urlString storyName:(NSString*)storyNameXpathQueryString];
         [listStoryVCL loadListStorys:(NSString*)urlString currentChap:(NSString*)currentChapXpathQueryString];
@@ -80,7 +75,6 @@
         [listStoryVCL loadListStorys:(NSString*)urlString nextPage:(NSString*)nextPageXpathQueryString];
         [listStoryVCL loadListStorys:(NSString*)urlString totalView:(NSString*)totalViewXpathQueryString];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [alret setHidden:YES];
             [UIView transitionWithView: listStoryVCL.tableView
                               duration: 0.5f
                                options: UIViewAnimationOptionTransitionCurlUp
@@ -94,42 +88,62 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] init];
-    UILabel *alret = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 200, 100)];
-    alret.backgroundColor = [UIColor yellowColor];
-    alret.text = @"Loading please wait !";
-    [self.view addSubview:alret];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *categoryUrlString = @"http://mangak.info/";
-        NSString *categorysXpathQueryString = @"//table[@class='theloai']/tbody/tr/td";
-        [self loadCategory:categoryUrlString withXpathQueryString:categorysXpathQueryString];
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    reach.reachableBlock = ^(Reachability*reach)
+    {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [alret setHidden:YES];
-            [UIView transitionWithView: self.tableView
-                              duration: 0.5f
-                               options: UIViewAnimationOptionTransitionCurlDown
-                            animations: ^(void)
-             {
-                 [self.tableView reloadData];
-             }
-                            completion: nil];
+            NSLog(@"REACHABLE!");
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSString *categoryUrlString = @"http://mangak.info/";
+                NSString *categorysXpathQueryString = @"//table[@class='theloai']/tbody/tr/td";
+                [self loadCategory:categoryUrlString withXpathQueryString:categorysXpathQueryString];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIView transitionWithView: self.tableView
+                                      duration: 0.5f
+                                       options: UIViewAnimationOptionTransitionCurlDown
+                                    animations: ^(void)
+                     {
+                         [self.tableView reloadData];
+                     }
+                                    completion: nil];
+                });
+            });
+            
         });
-    });
+    };
+    
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"UNREACHABLE!");
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"FBI Warning"
+                                     message:@"Please checking for your network !"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Yes"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                    }];
+        
+        UIAlertAction* noButton = [UIAlertAction
+                                   actionWithTitle:@"No, thanks"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                   }];
+        [alert addAction:yesButton];
+        [alert addAction:noButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    };
+    [reach startNotifier];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

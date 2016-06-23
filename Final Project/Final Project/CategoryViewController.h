@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Reachability/Reachability.h>
 #import <TFHppleElement.h>
 #import "CustomCell.h"
 #import "xCategory.h"
 #import "APIClient.h"
 #import "ListStoryViewController.h"
 @interface CategoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *categoryObjects;
 @end

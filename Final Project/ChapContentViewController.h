@@ -10,8 +10,8 @@
 #import <TFHppleElement.h>
 
 #import "Image.h"
-#import "Next.h"
-#import "Preview.h"
+#import "NextChap.h"
+#import "PreviewChap.h"
 
 #import "APIClient.h"
 #import "CategoryViewController.h"
@@ -23,10 +23,10 @@
 - (IBAction)clickNextBtn:(id)sender;
 - (IBAction)clickPreviewBtn:(id)sender;
 @property NSMutableArray *imageObjects;
-@property NSMutableArray *nextObjects;
-@property NSMutableArray *previewObjects;
--(void) loadChapContent:(NSString*)urlString next:(NSString*)nextXpathQueryString;
--(void) loadChapContent:(NSString*)urlString preview:(NSString*)previewXpathQueryString;
+@property NSMutableArray *nextChapObjects;
+@property NSMutableArray *previewChapObjects;
+-(void) loadChapContent:(NSString*)urlString nextChap:(NSString*)nextChapXpathQueryString;
+-(void) loadChapContent:(NSString*)urlString previewChap:(NSString*)previewChapXpathQueryString;
 -(void) loadChapContent:(NSString*)urlString image:(NSString*)imageXpathQueryString;
 @property NSString *urlString;
 @end

@@ -23,10 +23,11 @@
 #import "ListChapViewController.h"
 #import <UIActivityIndicator-for-SDWebImage+UIButton/UIImageView+UIActivityIndicatorForSDWebImage.h>
 @interface ListStoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
 - (IBAction)clickPreviewPage:(id)sender;
 - (IBAction)clickNextPage:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
--(NSString*) param:(int) x;
+
 @property NSString *urlString;
 @property NSMutableArray *currentPageObjects;
 @property NSMutableArray *categorysObjects;

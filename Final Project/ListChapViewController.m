@@ -107,13 +107,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"ChapContentViewController"];
-    ChapterName *chapterNameOfThisCell = [self.chapterNameObjects objectAtIndex:indexPath.row];
-    NSString *urlString = chapterNameOfThisCell.url;
-    NSString *imageXpathQueryString = @"//div[@class='vung_doc']/img";
-    chapContentVCL.urlString = urlString;
-    [chapContentVCL loadChapContent:urlString image:imageXpathQueryString];
     [self presentViewController:chapContentVCL animated:YES completion:^{
     }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        ChapterName *chapterNameOfThisCell = [self.chapterNameObjects objectAtIndex:indexPath.row];
+        NSString *urlString = chapterNameOfThisCell.url;
+        NSString *imageXpathQueryString = @"//div[@class='vung_doc']/img";
+        NSString *previewChapXpathQueryString = @"//a[@rel='nofollow']";
+        chapContentVCL.urlString = urlString;
+        [chapContentVCL loadChapContent:urlString image:imageXpathQueryString];
+        [chapContentVCL loadChapContent:urlString nextChap:previewChapXpathQueryString];
+        [chapContentVCL loadChapContent:urlString previewChap:previewChapXpathQueryString];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [chapContentVCL viewDidLoad];
+        });
+    });
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

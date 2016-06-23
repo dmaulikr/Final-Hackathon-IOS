@@ -104,7 +104,7 @@
     for (TFHppleElement *element in previewPageNodes) {
         PreviewPage *previewPage = [[PreviewPage alloc] init];
         [newPreviewPages addObject:previewPage];
-        previewPage.url = [element.firstChild content];
+        previewPage.url = [element objectForKey:@"href"];
     }
     self.previewPageObjects = newPreviewPages;
 }
@@ -116,7 +116,7 @@
     for (TFHppleElement *element in nextPageNodes) {
         NextPage *nextPage = [[NextPage alloc] init];
         [newNextPages addObject:nextPage];
-        nextPage.url = [element.firstChild content];
+        nextPage.url = [element objectForKey:@"href"];
     }
     self.nextPageObjects = newNextPages;
 }
@@ -156,10 +156,6 @@
     ListChapViewController *listChapVCL = [sb instantiateViewControllerWithIdentifier:@"ListChapViewController"];
     [self presentViewController:listChapVCL animated:YES completion:^{
     }];
-    UILabel *alret = [[UILabel alloc] initWithFrame:CGRectMake(listChapVCL.view.frame.size.width/2, listChapVCL.view.frame.size.height/2, 200, 100)];
-    alret.backgroundColor = [UIColor yellowColor];
-    alret.text = @"Loading please wait !";
-    [listChapVCL.view addSubview:alret];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         StoryName  *storyNameOfThisCell = [self.storyNameObjects objectAtIndex:indexPath.row];
         NSString *urlString = storyNameOfThisCell.url;
@@ -170,7 +166,6 @@
         [listChapVCL loadListChap:urlString dateUpdate:chapterNameXpathQueryString];
         [listChapVCL loadListChap:urlString summaryContent:summaryContentXpathQueryString];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [alret setHidden:YES];
             [UIView transitionWithView: listChapVCL.tableView
                               duration: 0.5f
                                options: UIViewAnimationOptionTransitionCrossDissolve
@@ -183,21 +178,94 @@
         });
     });
 }
--(NSString*) param:(int) x {
-    NSString *str = [self.urlString stringByAppendingString:[NSString stringWithFormat:@"trang-%d/",x]];
-    return str;
-}
+#pragma mark - Click Preview page
 - (IBAction)clickPreviewPage:(id)sender {
-    
+    if(self.previewPageObjects.count > 0) {
+        PreviewPage *previewPage = [[PreviewPage alloc] init];
+        previewPage = [self.previewPageObjects objectAtIndex:0];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        ListStoryViewController *listStoryVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
+        [self presentViewController:listStoryVCL animated:YES completion:^{
+        }];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSString *urlString = previewPage.url;
+            NSString *storyNameXpathQueryString = @"//h3[@class='nowrap']/a";
+            NSString *totalViewXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/span";
+            NSString *coverXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
+            NSString *currentChapXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
+            NSString *categorysXpathQueryString = @"//div[@class='item2_theloai']";
+            
+            NSString *currentPageXpathQueryString = @"//span[@class='current']";
+            NSString *previewPageXpathQueryString = @"//a[@class='previouspostslink']";
+            NSString *nextPageXpathQueryString = @"//a[@class='nextpostslink']";
+            listStoryVCL.urlString = urlString;
+            [listStoryVCL loadListStorys:(NSString*)urlString storyName:(NSString*)storyNameXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString currentChap:(NSString*)currentChapXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString categorys:(NSString*)categorysXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString cover:(NSString*)coverXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString currentPage:(NSString*)currentPageXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString previewPage:(NSString*)previewPageXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString nextPage:(NSString*)nextPageXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString totalView:(NSString*)totalViewXpathQueryString];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIView transitionWithView: listStoryVCL.tableView
+                                  duration: 0.5f
+                                   options: UIViewAnimationOptionTransitionCurlUp
+                                animations: ^(void)
+                 {
+                     [listStoryVCL.tableView reloadData];
+                 }
+                                completion: nil];
+            });
+        });
+    }
 }
-
+#pragma mark - Click Next page
 - (IBAction)clickNextPage:(id)sender {
+    if(self.nextPageObjects.count > 0) {
+        NextPage *nextPage = [[NextPage alloc] init];
+        nextPage = [self.nextPageObjects objectAtIndex:0];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        ListStoryViewController *listStoryVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
+        [self presentViewController:listStoryVCL animated:YES completion:^{
+        }];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSString *urlString = nextPage.url;
+            NSString *storyNameXpathQueryString = @"//h3[@class='nowrap']/a";
+            NSString *totalViewXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/span";
+            NSString *coverXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
+            NSString *currentChapXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
+            NSString *categorysXpathQueryString = @"//div[@class='item2_theloai']";
+            
+            NSString *currentPageXpathQueryString = @"//span[@class='current']";
+            NSString *previewPageXpathQueryString = @"//a[@class='previouspostslink']";
+            NSString *nextPageXpathQueryString = @"//a[@class='nextpostslink']";
+            listStoryVCL.urlString = urlString;
+            [listStoryVCL loadListStorys:(NSString*)urlString storyName:(NSString*)storyNameXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString currentChap:(NSString*)currentChapXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString categorys:(NSString*)categorysXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString cover:(NSString*)coverXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString currentPage:(NSString*)currentPageXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString previewPage:(NSString*)previewPageXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString nextPage:(NSString*)nextPageXpathQueryString];
+            [listStoryVCL loadListStorys:(NSString*)urlString totalView:(NSString*)totalViewXpathQueryString];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIView transitionWithView: listStoryVCL.tableView
+                                  duration: 0.5f
+                                   options: UIViewAnimationOptionTransitionCurlUp
+                                animations: ^(void)
+                 {
+                     [listStoryVCL.tableView reloadData];
+                 }
+                                completion: nil];
+            });
+        });
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] init];
-    NSLog(@"%@",[self param:5]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -205,7 +273,6 @@
     
     // Dispose of any resources that can be recreated.
 }
-
 /*
  #pragma mark - Navigation
  

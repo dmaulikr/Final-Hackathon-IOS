@@ -7,11 +7,13 @@ target 'Final Project' do
 
   # Pods for Final Project
 pod 'NAModalSheet'
-pod 'SDWebImage'
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 pod 'SWRevealViewController'
 pod 'hpple'
+pod 'SDWebImage'
 pod 'UIActivityIndicator-for-SDWebImage+UIButton'
+pod 'Reachability'
+pod 'SVPullToRefresh'
 end
