@@ -1,13 +1,13 @@
 //
-//  Rating.h
+//  PreviewPage.h
 //  Final Project
 //
-//  Created by Hung Ga 123 on 6/20/16.
+//  Created by Hung Ga 123 on 6/23/16.
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface Rating : NSObject
-@property NSString *title;
+@interface PreviewPage : NSObject
+@property NSString *url;
 @end

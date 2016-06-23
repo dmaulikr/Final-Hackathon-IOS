@@ -1,14 +1,13 @@
 //
-//  Author.h
+//  CurrentPage.h
 //  Final Project
 //
-//  Created by Hung Ga 123 on 6/20/16.
+//  Created by Hung Ga 123 on 6/22/16.
 //  Copyright © 2016 HungVu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface Author : NSObject
+@interface CurrentPage : NSObject
 @property NSString *title;
-@property NSString *url;
 @end

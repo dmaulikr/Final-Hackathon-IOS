@@ -13,53 +13,65 @@
 @end
 
 @implementation ListChapViewController
+#pragma mark - Chapter Name
 -(void) loadListChap:(NSString*)urlString chapterName:(NSString *)chapterNameXpathQueryString {
-    NSMutableArray *newChaps = [[NSMutableArray alloc] init];
-    //Chapter Name and Url
+    NSMutableArray *newChapterNames = [[NSMutableArray alloc] init];
     NSArray *chapterNameNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                                    withXpathQueryString:chapterNameXpathQueryString];
     for (TFHppleElement *element in chapterNameNodes) {
         ChapterName *chapterName = [[ChapterName alloc] init];
-        chapterName.title = [element objectForKey:@"title"];
-        chapterName.url = [element objectForKey:@"href"];
-        ChapDetail *chapDetail = [[ChapDetail alloc] init];
-        [newChaps addObject:chapDetail];
-        chapDetail.chapterName = chapterName;
+        [newChapterNames addObject:chapterName];
+        for (TFHppleElement *child in element.children) {
+            if([[child.firstChild objectForKey:@"target"] isEqualToString:@"_blank"]) {
+                chapterName.url = [child.firstChild objectForKey:@"href"];
+                chapterName.title = child.firstChild.firstChild.content;
+            }
+        }
     }
-    self.chapDetailObjects = newChaps;
-    [self.tableView reloadData];
+    self.chapterNameObjects = newChapterNames;
 }
--(void) loadSummary:(NSString*)UrlString summaryContent:(NSString *)summaryContentXpathQueryString rating:(NSString *)ratingXpathQueryString {
-    NSMutableArray *newSummarys = [[NSMutableArray alloc] init];
-    //Summary
-    NSArray *summaryContentNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
+#pragma mark - Date Update
+-(void) loadListChap:(NSString*)urlString dateUpdate:(NSString *)dateUpdateXpathQueryString {
+    NSMutableArray *newDateUpdates = [[NSMutableArray alloc] init];
+    NSArray *dateUpdateNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                                  withXpathQueryString:dateUpdateXpathQueryString];
+    for (TFHppleElement *element in dateUpdateNodes) {
+        DateUpdate *dateUpdate = [[DateUpdate alloc] init];
+        [newDateUpdates addObject:dateUpdate];
+        for (TFHppleElement *child in element.children) {
+            if(child.firstChild.content != nil) {
+                dateUpdate.title = child.firstChild.content;
+            }
+        }
+    }
+    self.dateUpdateObjects = newDateUpdates;
+}
+#pragma mark - Summary Content
+-(void) loadListChap:(NSString*)urlString summaryContent:(NSString *)summaryContentXpathQueryString {
+    NSMutableArray *newSummaryContents = [[NSMutableArray alloc] init];
+    NSArray *summaryContentNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                                       withXpathQueryString:summaryContentXpathQueryString];
-    if(summaryContentNodes.count == 0) {
-        NSString *ratingXpathQueryString2 = @"//span[@itemprop='ratingValue']";
-        NSString *summaryContentXpathQueryString2 = @"//div[@class='desc-text desc-text-full']";
-        [self loadSummary:self.urlString summaryContent:summaryContentXpathQueryString2 rating:ratingXpathQueryString2];
-    } else {
-        for (TFHppleElement *element in summaryContentNodes) {
-            SummaryContent *summaryContent = [[SummaryContent alloc] init];
-            summaryContent.textContent = @"";
-            for (TFHppleElement *child in element.children) {
-                if(child.content != nil) {
-                    summaryContent.textContent = [summaryContent.textContent stringByAppendingString:child.content];
-                } else {
-                    if([child.tagName isEqualToString:@"p"] || [child.tagName isEqualToString:@"span"] || [child.tagName isEqualToString:@"b"] || [child.tagName isEqualToString:@"i"]) {
-                        for (TFHppleElement *subChild in child.children) {
-                            if(subChild.content != nil) {
-                                summaryContent.textContent = [summaryContent.textContent stringByAppendingString:subChild.content];
-                            } else {
-                                if([subChild.tagName isEqualToString:@"b"] || [subChild.tagName isEqualToString:@"i"]|| [subChild.tagName isEqualToString:@"span"] || [subChild.tagName isEqualToString:@"p"]) {
-                                    for (TFHppleElement *superSubChild in subChild.children) {
-                                        if(superSubChild.content != nil) {
-                                            summaryContent.textContent = [summaryContent.textContent stringByAppendingString:superSubChild.content];
-                                        } else {
-                                            if([subChild.tagName isEqualToString:@"p"] || [superSubChild.tagName isEqualToString:@"b"] || [superSubChild.tagName isEqualToString:@"i"]|| [superSubChild.tagName isEqualToString:@"span"]) {
-                                                if(superSubChild.firstChild.content != nil) {
-                                                    summaryContent.textContent = [summaryContent.textContent stringByAppendingString:superSubChild.firstChild.content];
-                                                }
+    for (TFHppleElement *element in summaryContentNodes) {
+        SummaryContent *summaryContent = [[SummaryContent alloc] init];
+        [newSummaryContents addObject:summaryContent];
+        summaryContent.textContent = @"";
+        for(TFHppleElement *child in element.children) {
+            if(child.content != nil) {
+                summaryContent.textContent = [summaryContent.textContent stringByAppendingString:child.content];
+            } else {
+                if([child.tagName isEqualToString:@"p"] || [child.tagName isEqualToString:@"ul"] || [child.tagName isEqualToString:@"h2"]) {
+                    for (TFHppleElement *subChild in child.children) {
+                        if(subChild.content != nil) {
+                            summaryContent.textContent = [summaryContent.textContent stringByAppendingString:subChild.content];
+                        } else {
+                            if([subChild.tagName isEqualToString:@"li"] || [subChild.tagName isEqualToString:@"a"] || [subChild.tagName isEqualToString:@"strong"]){
+                                for (TFHppleElement *superSubChild in subChild.children) {
+                                    if(superSubChild.content != nil) {
+                                        summaryContent.textContent = [summaryContent.textContent stringByAppendingString:superSubChild.content];
+                                    } else {
+                                        if([superSubChild.tagName isEqualToString:@"a"]) {
+                                            if(superSubChild.firstChild.content != nil) {
+                                                summaryContent.textContent = [summaryContent.textContent stringByAppendingString:superSubChild.firstChild.content];
                                             }
                                         }
                                     }
@@ -69,58 +81,37 @@
                     }
                 }
             }
-            Summary *summary = [[Summary alloc] init];
-            [newSummarys addObject:summary];
-            summary.summaryContent = summaryContent;
         }
-        //Rating
-        NSArray *ratingContentNodes = [[APIClient sharedInstance] loadFromUrl:UrlString
-                                                         withXpathQueryString:ratingXpathQueryString];
-        for (TFHppleElement *element in ratingContentNodes) {
-            Rating *rating = [[Rating alloc] init];
-            rating.title = element.firstChild.content;
-            Summary *summary = [[Summary alloc] init];
-            if(newSummarys.count > 0) {
-                summary = [newSummarys objectAtIndex:0];
-                summary.rating = rating;
-            } else {
-                [newSummarys addObject:summary];
-                summary = [newSummarys objectAtIndex:0];
-                summary.rating = rating;
-            }
-        }
-        self.summaryObjects = newSummarys;
-        [self viewDidLoad];
     }
+    self.summaryContentObjects = newSummaryContents;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 150;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.chapDetailObjects.count;
+    return self.chapterNameObjects.count;
 }
-
+#pragma mark - cellForRowAtIndexPath
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomCell3 *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
-    ChapDetail  *chapDetailOfThisCell = [self.chapDetailObjects objectAtIndex:indexPath.row];
-    cell.lblLink.text = chapDetailOfThisCell.chapterName.url;
-    cell.lblChapterName.text = chapDetailOfThisCell.chapterName.title;
+    ChapterName *chapterNameOfThisCell = [self.chapterNameObjects objectAtIndex:indexPath.row];
+    DateUpdate *dateUpdateOfThisCell = [self.dateUpdateObjects objectAtIndex:indexPath.row];
+    cell.lblLink.text = chapterNameOfThisCell.url;
+    cell.lblChapterName.text = chapterNameOfThisCell.title;
+    cell.lblDateUpdate.text = dateUpdateOfThisCell.title;
     return cell;
 }
-
+#pragma mark - didSelectRowAtIndexPath
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     ChapContentViewController *chapContentVCL = [sb instantiateViewControllerWithIdentifier:@"ChapContentViewController"];
-    ChapDetail *chapOfThisCell = [self.chapDetailObjects objectAtIndex:indexPath.row];
-    NSString *urlString = chapOfThisCell.chapterName.url;
-    NSString *btnXpathQueryString = @"//a[@class='btn btn-success']";
-    NSString *chapContentXpathQueryString = @"//div[@class='chapter-content']";
+    ChapterName *chapterNameOfThisCell = [self.chapterNameObjects objectAtIndex:indexPath.row];
+    NSString *urlString = chapterNameOfThisCell.url;
+    NSString *imageXpathQueryString = @"//div[@class='vung_doc']/img";
     chapContentVCL.urlString = urlString;
-    [chapContentVCL loadChapContent:urlString chapContent:chapContentXpathQueryString];
-    [chapContentVCL loadChapContent:urlString next:btnXpathQueryString];
-    [chapContentVCL loadChapContent:urlString preview:btnXpathQueryString];
-    //[self.navigationController pushViewController:chapContentVCL animated:YES];
+    [chapContentVCL loadChapContent:urlString image:imageXpathQueryString];
     [self presentViewController:chapContentVCL animated:YES completion:^{
     }];
 }
@@ -128,10 +119,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] init];
-    Summary *summary = [[Summary alloc] init];
-    summary = [self.summaryObjects objectAtIndex:0];
-    self.lblSummaryContent.text = summary.summaryContent.textContent;
-    self.lblRating.text = summary.rating.title;
+    if(self.summaryContentObjects.count > 0) {
+        SummaryContent *summaryContent = [[SummaryContent alloc] init];
+        summaryContent = [self.summaryContentObjects objectAtIndex:0];
+        self.lblSummaryContent.text = summaryContent.textContent;
+    }
     
 }
 

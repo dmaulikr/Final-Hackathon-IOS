@@ -17,6 +17,8 @@ PODS:
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SWRevealViewController (2.3.0)
+  - UIActivityIndicator-for-SDWebImage+UIButton (1.2):
+    - SDWebImage (~> 3.7)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -26,6 +28,7 @@ DEPENDENCIES:
   - NAModalSheet
   - SDWebImage
   - SWRevealViewController
+  - UIActivityIndicator-for-SDWebImage+UIButton
 
 SPEC CHECKSUMS:
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
@@ -36,7 +39,8 @@ SPEC CHECKSUMS:
   NAModalSheet: c8cbef42bc09e516c38ce470b099d0267b1754af
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  UIActivityIndicator-for-SDWebImage+UIButton: fec60d688a1b85ea6aabf5190a9fbb3752ebd16f
 
-PODFILE CHECKSUM: 06c454bf211b41e7e6c75ba684a31243ea35b971
+PODFILE CHECKSUM: 613681ed73fe90493c058f09fe968e71e5ef87ad
 
 COCOAPODS: 1.0.1

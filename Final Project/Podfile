@@ -13,4 +13,5 @@ pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 pod 'SWRevealViewController'
 pod 'hpple'
+pod 'UIActivityIndicator-for-SDWebImage+UIButton'
 end

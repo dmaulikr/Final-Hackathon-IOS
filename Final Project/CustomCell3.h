@@ -11,4 +11,5 @@
 @interface CustomCell3 : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblLink;
 @property (weak, nonatomic) IBOutlet UILabel *lblChapterName;
+@property (weak, nonatomic) IBOutlet UILabel *lblDateUpdate;
 @end
