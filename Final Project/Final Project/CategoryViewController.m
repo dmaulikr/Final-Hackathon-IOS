@@ -12,9 +12,9 @@
 @end
 
 @implementation CategoryViewController
+#pragma mark - Category list
 -(void) loadCategory:(NSString*)categoryUrlString withXpathQueryString:(NSString*)categorysXpathQueryString {
     NSMutableArray *newCategorys = [[NSMutableArray alloc] init];
-    //Category list
     NSArray *categoryNodes = [[APIClient sharedInstance] loadFromUrl:categoryUrlString
                                                 withXpathQueryString:categorysXpathQueryString];
     for (TFHppleElement *element in categoryNodes) {
@@ -41,6 +41,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.categoryObjects.count;
 }
+#pragma mark - cellForRowAtIndexPath
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     xCategory  *categoryOfThisCell = [self.categoryObjects objectAtIndex:indexPath.row];
@@ -48,6 +49,7 @@
     cell.lblLink.text = categoryOfThisCell.url;
     return cell;
 }
+#pragma mark - didSelectRowAtIndexPath
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     ListStoryViewController *listStoryVCL = [sb instantiateViewControllerWithIdentifier:@"ListStoryViewController"];
@@ -101,7 +103,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [UIView transitionWithView: self.tableView
                                       duration: 0.5f
-                                       options: UIViewAnimationOptionTransitionCurlDown
+                                       options: UIViewAnimationOptionTransitionCrossDissolve
                                     animations: ^(void)
                      {
                          [self.tableView reloadData];

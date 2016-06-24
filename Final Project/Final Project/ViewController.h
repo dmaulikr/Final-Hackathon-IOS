@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SWRevealViewController/SWRevealViewController.h>
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barBtnItem;
 
 @end
 

@@ -15,6 +15,7 @@
 
 #import "APIClient.h"
 #import "CategoryViewController.h"
+#import <SWRevealViewController/SWRevealViewController.h>
 #import <UIActivityIndicator-for-SDWebImage+UIButton/UIImageView+UIActivityIndicatorForSDWebImage.h>
 @interface ChapContentViewController : UIViewController
 

@@ -14,10 +14,11 @@
 #pragma mark - Click home button
 - (IBAction)clickHomeBtn:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    CategoryViewController *categoryVCL = [sb instantiateViewControllerWithIdentifier:@"CategoryViewController"];
+//    CategoryViewController *categoryVCL = [sb instantiateViewControllerWithIdentifier:@"CategoryViewController"];
+    SWRevealViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:categoryVCL animated:YES completion:^{
+            [self presentViewController:viewController animated:YES completion:^{
             }];
         });
     });

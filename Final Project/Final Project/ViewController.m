@@ -16,6 +16,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController != nil)
+    {
+        [self.barBtnItem setTarget: self.revealViewController];
+        [self.barBtnItem setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    revealViewController.rearViewRevealWidth = 320;
 }
 
 - (void)didReceiveMemoryWarning {
