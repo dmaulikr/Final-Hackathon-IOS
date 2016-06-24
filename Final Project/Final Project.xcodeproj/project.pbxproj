@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D100AFF268CB69229835823 /* libPods-Final Project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37336A19CBFB1160DCDC906 /* libPods-Final Project.a */; };
 		E90AF4851D183B670047F5B6 /* SummaryContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E90AF4841D183B670047F5B6 /* SummaryContent.m */; };
+		E92D5B071D1D49EF0034B31C /* ChapReading.m in Sources */ = {isa = PBXBuildFile; fileRef = E92D5B061D1D49EF0034B31C /* ChapReading.m */; };
 		E93B28431D16618900486477 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E93B28421D16618900486477 /* libxml2.tbd */; };
 		E98444851D1AD5F20089693B /* CurrentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = E98444841D1AD5F20089693B /* CurrentPage.m */; };
 		E9B2AF071D0FD62B00E76071 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B2AF061D0FD62B00E76071 /* main.m */; };
@@ -23,6 +24,8 @@
 		E9B5E8701D1B225700BE0ACB /* TotalView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B5E86F1D1B225700BE0ACB /* TotalView.m */; };
 		E9B5E8741D1B23BA00BE0ACB /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B5E8731D1B23BA00BE0ACB /* Image.m */; };
 		E9B5E8771D1B247600BE0ACB /* DateUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B5E8761D1B247600BE0ACB /* DateUpdate.m */; };
+		E9B89C1E1D1D917100B1AACF /* TopStoryName.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B89C1D1D1D917100B1AACF /* TopStoryName.m */; };
+		E9B89C211D1D918000B1AACF /* TopStoryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B89C201D1D918000B1AACF /* TopStoryImage.m */; };
 		E9BA4D9D1D1923DF0006FEF5 /* ChapContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */; };
 		E9CC6DBE1D16ADF2003EEB08 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DBD1D16ADF2003EEB08 /* CustomCell.m */; };
 		E9CC6DC11D171445003EEB08 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC01D171445003EEB08 /* CategoryViewController.m */; };
@@ -47,6 +50,8 @@
 		D37336A19CBFB1160DCDC906 /* libPods-Final Project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Final Project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90AF4831D183B670047F5B6 /* SummaryContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryContent.h; sourceTree = "<group>"; };
 		E90AF4841D183B670047F5B6 /* SummaryContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryContent.m; sourceTree = "<group>"; };
+		E92D5B051D1D49EF0034B31C /* ChapReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapReading.h; sourceTree = "<group>"; };
+		E92D5B061D1D49EF0034B31C /* ChapReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapReading.m; sourceTree = "<group>"; };
 		E93B28421D16618900486477 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		E98444831D1AD5F20089693B /* CurrentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPage.h; sourceTree = "<group>"; };
 		E98444841D1AD5F20089693B /* CurrentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPage.m; sourceTree = "<group>"; };
@@ -71,6 +76,10 @@
 		E9B5E8731D1B23BA00BE0ACB /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		E9B5E8751D1B247600BE0ACB /* DateUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUpdate.h; sourceTree = "<group>"; };
 		E9B5E8761D1B247600BE0ACB /* DateUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUpdate.m; sourceTree = "<group>"; };
+		E9B89C1C1D1D917100B1AACF /* TopStoryName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStoryName.h; sourceTree = "<group>"; };
+		E9B89C1D1D1D917100B1AACF /* TopStoryName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStoryName.m; sourceTree = "<group>"; };
+		E9B89C1F1D1D918000B1AACF /* TopStoryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStoryImage.h; sourceTree = "<group>"; };
+		E9B89C201D1D918000B1AACF /* TopStoryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStoryImage.m; sourceTree = "<group>"; };
 		E9BA4D9B1D1923DF0006FEF5 /* ChapContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapContentViewController.h; sourceTree = "<group>"; };
 		E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapContentViewController.m; sourceTree = "<group>"; };
 		E9CC6DBC1D16ADF2003EEB08 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = "Final Project/CustomCell.h"; sourceTree = "<group>"; };
@@ -125,6 +134,15 @@
 				E9B5E8631D1B20F800BE0ACB /* NextPage.m */,
 			);
 			name = NextPage;
+			sourceTree = "<group>";
+		};
+		E92D5B041D1D49C10034B31C /* ChapReading */ = {
+			isa = PBXGroup;
+			children = (
+				E92D5B051D1D49EF0034B31C /* ChapReading.h */,
+				E92D5B061D1D49EF0034B31C /* ChapReading.m */,
+			);
+			name = ChapReading;
 			sourceTree = "<group>";
 		};
 		E98444821D1AD5BF0089693B /* CurrentPage */ = {
@@ -243,9 +261,28 @@
 			name = Image;
 			sourceTree = "<group>";
 		};
+		E9B89C161D1D910C00B1AACF /* TopStoryImage */ = {
+			isa = PBXGroup;
+			children = (
+				E9B89C1F1D1D918000B1AACF /* TopStoryImage.h */,
+				E9B89C201D1D918000B1AACF /* TopStoryImage.m */,
+			);
+			name = TopStoryImage;
+			sourceTree = "<group>";
+		};
+		E9B89C171D1D912000B1AACF /* TopStoryName */ = {
+			isa = PBXGroup;
+			children = (
+				E9B89C1C1D1D917100B1AACF /* TopStoryName.h */,
+				E9B89C1D1D1D917100B1AACF /* TopStoryName.m */,
+			);
+			name = TopStoryName;
+			sourceTree = "<group>";
+		};
 		E9BA4D9A1D19239D0006FEF5 /* ChapContent */ = {
 			isa = PBXGroup;
 			children = (
+				E92D5B041D1D49C10034B31C /* ChapReading */,
 				E9B5E8711D1B239F00BE0ACB /* Image */,
 				E9FDCA321D1A6D32007734E8 /* NextChap */,
 				E9FDCA3D1D1A9DCB007734E8 /* PreviewChap */,
@@ -317,6 +354,8 @@
 		E9CC6DDE1D174707003EEB08 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E9B89C171D1D912000B1AACF /* TopStoryName */,
+				E9B89C161D1D910C00B1AACF /* TopStoryImage */,
 				E9FDCA301D1A6CDD007734E8 /* Category */,
 				E9CC6DBF1D171445003EEB08 /* CategoryViewController.h */,
 				E9CC6DC01D171445003EEB08 /* CategoryViewController.m */,
@@ -507,16 +546,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B89C1E1D1D917100B1AACF /* TopStoryName.m in Sources */,
 				E9B5E8771D1B247600BE0ACB /* DateUpdate.m in Sources */,
 				E9CE05511D1C4C2500A12D0C /* PreviewChap.m in Sources */,
 				E9CC6DC41D17166B003EEB08 /* xCategory.m in Sources */,
 				E9B5E8681D1B213D00BE0ACB /* PreviewPage.m in Sources */,
 				E9B2AF0D1D0FD62B00E76071 /* ViewController.m in Sources */,
 				E9CC6DD31D173C17003EEB08 /* ListStoryViewController.m in Sources */,
+				E9B89C211D1D918000B1AACF /* TopStoryImage.m in Sources */,
 				E9CC6DCA1D1732C8003EEB08 /* StoryName.m in Sources */,
 				E9B2AF0A1D0FD62B00E76071 /* AppDelegate.m in Sources */,
 				E9B5E8641D1B20F800BE0ACB /* NextPage.m in Sources */,
 				E9CC6DE81D17E3DB003EEB08 /* CustomCell3.m in Sources */,
+				E92D5B071D1D49EF0034B31C /* ChapReading.m in Sources */,
 				E98444851D1AD5F20089693B /* CurrentPage.m in Sources */,
 				E9B5E8741D1B23BA00BE0ACB /* Image.m in Sources */,
 				E9BA4D9D1D1923DF0006FEF5 /* ChapContentViewController.m in Sources */,

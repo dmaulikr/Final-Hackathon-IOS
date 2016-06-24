@@ -12,13 +12,13 @@
 #import "Image.h"
 #import "NextChap.h"
 #import "PreviewChap.h"
+#import "ChapReading.h"
 
 #import "APIClient.h"
 #import "CategoryViewController.h"
 #import <SWRevealViewController/SWRevealViewController.h>
 #import <UIActivityIndicator-for-SDWebImage+UIButton/UIImageView+UIActivityIndicatorForSDWebImage.h>
 @interface ChapContentViewController : UIViewController
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)clickHomeBtn:(id)sender;
 - (IBAction)clickNextBtn:(id)sender;
@@ -26,6 +26,8 @@
 @property NSMutableArray *imageObjects;
 @property NSMutableArray *nextChapObjects;
 @property NSMutableArray *previewChapObjects;
+@property NSMutableArray *chapReadingObjects;
+-(void) loadChapContent:(NSString*)urlString chapReading:(NSString*)chapReadingXpathQueryString;
 -(void) loadChapContent:(NSString*)urlString nextChap:(NSString*)nextChapXpathQueryString;
 -(void) loadChapContent:(NSString*)urlString previewChap:(NSString*)previewChapXpathQueryString;
 -(void) loadChapContent:(NSString*)urlString image:(NSString*)imageXpathQueryString;

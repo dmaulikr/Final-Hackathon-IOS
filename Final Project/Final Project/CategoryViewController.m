@@ -12,10 +12,45 @@
 @end
 
 @implementation CategoryViewController
+#pragma mark - Top story name
+-(void) loadCategory:(NSString*)urlString topStoryNameXpathQueryString:(NSString*)topStoryNameXpathQueryString {
+    NSMutableArray *newTopStoryNames = [[NSMutableArray alloc] init];
+    NSArray *topStoryNameNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                                withXpathQueryString:topStoryNameXpathQueryString];
+    for (TFHppleElement *element in topStoryNameNodes) {
+        TopStoryName *topStoryName = [[TopStoryName alloc] init];
+        [newTopStoryNames addObject:topStoryName];
+        for (TFHppleElement *child in element.children) {
+            if ([[child objectForKey:@"rel"] isEqualToString:@"nofollow"]) {
+                topStoryName.url = [child objectForKey:@"href"];
+                topStoryName.title = [child.firstChild objectForKey:@"alt"];
+            }
+        }
+        NSLog(@"%@ \n %@", topStoryName.url, topStoryName.title);
+    }
+    self.topStoryNameObjects = newTopStoryNames;
+}
+#pragma mark - Top story name
+-(void) loadCategory:(NSString*)urlString topStoryImageXpathQueryString:(NSString*)topStoryImageXpathQueryString {
+    NSMutableArray *newTopStoryImages = [[NSMutableArray alloc] init];
+    NSArray *topStoryImageNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                                    withXpathQueryString:topStoryImageXpathQueryString];
+    for (TFHppleElement *element in topStoryImageNodes) {
+        TopStoryImage *topStoryImage = [[TopStoryImage alloc] init];
+        [newTopStoryImages addObject:topStoryImage];
+        for (TFHppleElement *child in element.children) {
+            if ([[child objectForKey:@"rel"] isEqualToString:@"nofollow"]) {
+                topStoryImage.url = [child.firstChild objectForKey:@"src"];
+            }
+        }
+        NSLog(@"%@",topStoryImage.url);
+    }
+    self.topStoryImageObjects = newTopStoryImages;
+}
 #pragma mark - Category list
--(void) loadCategory:(NSString*)categoryUrlString withXpathQueryString:(NSString*)categorysXpathQueryString {
+-(void) loadCategory:(NSString*)urlString categoryXpathQueryString:(NSString*)categorysXpathQueryString {
     NSMutableArray *newCategorys = [[NSMutableArray alloc] init];
-    NSArray *categoryNodes = [[APIClient sharedInstance] loadFromUrl:categoryUrlString
+    NSArray *categoryNodes = [[APIClient sharedInstance] loadFromUrl:urlString
                                                 withXpathQueryString:categorysXpathQueryString];
     for (TFHppleElement *element in categoryNodes) {
         for (TFHppleElement *child in element.children) {
@@ -33,7 +68,6 @@
         }
     }
     self.categoryObjects = newCategorys;
-    [self.tableView reloadData];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 150;
@@ -63,7 +97,6 @@
         NSString *coverXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
         NSString *currentChapXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
         NSString *categorysXpathQueryString = @"//div[@class='item2_theloai']";
-        
         NSString *currentPageXpathQueryString = @"//span[@class='current']";
         NSString *previewPageXpathQueryString = @"//a[@class='previouspostslink']";
         NSString *nextPageXpathQueryString = @"//a[@class='nextpostslink']";
@@ -97,9 +130,13 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"REACHABLE!");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                NSString *categoryUrlString = @"http://mangak.info/";
+                NSString *urlString = @"http://mangak.info/";
                 NSString *categorysXpathQueryString = @"//table[@class='theloai']/tbody/tr/td";
-                [self loadCategory:categoryUrlString withXpathQueryString:categorysXpathQueryString];
+                NSString *topStoryNameXpathQueryString = @"//div[@class='top_thang']/ul/li";
+                NSString *topStoryImageXpathQueryString = @"//div[@class='top_thang']/ul/li";
+                [self loadCategory:urlString categoryXpathQueryString:categorysXpathQueryString];
+                [self loadCategory:urlString topStoryNameXpathQueryString:topStoryNameXpathQueryString];
+                [self loadCategory:urlString topStoryImageXpathQueryString:topStoryImageXpathQueryString];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [UIView transitionWithView: self.tableView
                                       duration: 0.5f

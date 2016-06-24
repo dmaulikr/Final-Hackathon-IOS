@@ -114,7 +114,9 @@
         NSString *urlString = chapterNameOfThisCell.url;
         NSString *imageXpathQueryString = @"//div[@class='vung_doc']/img";
         NSString *previewChapXpathQueryString = @"//a[@rel='nofollow']";
+        NSString *chapReadingXpathQueryString = @"//h1[@class='name_chapter entry-title']";
         chapContentVCL.urlString = urlString;
+        [chapContentVCL loadChapContent:urlString chapReading:chapReadingXpathQueryString];
         [chapContentVCL loadChapContent:urlString image:imageXpathQueryString];
         [chapContentVCL loadChapContent:urlString nextChap:previewChapXpathQueryString];
         [chapContentVCL loadChapContent:urlString previewChap:previewChapXpathQueryString];

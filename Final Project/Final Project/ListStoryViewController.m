@@ -93,6 +93,7 @@
         CurrentPage *currentPage = [[CurrentPage alloc] init];
         [newCurrentPages addObject:currentPage];
         currentPage.title = [element.firstChild content];
+        NSLog(@"%@",currentPage.title);
     }
     self.currentPageObjects = newCurrentPages;
 }
@@ -194,7 +195,6 @@
             NSString *coverXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
             NSString *currentChapXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
             NSString *categorysXpathQueryString = @"//div[@class='item2_theloai']";
-            
             NSString *currentPageXpathQueryString = @"//span[@class='current']";
             NSString *previewPageXpathQueryString = @"//a[@class='previouspostslink']";
             NSString *nextPageXpathQueryString = @"//a[@class='nextpostslink']";
@@ -236,7 +236,6 @@
             NSString *coverXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
             NSString *currentChapXpathQueryString = @"//div[@class='wrap_update tab_anh_dep danh_sach']/div/a";
             NSString *categorysXpathQueryString = @"//div[@class='item2_theloai']";
-            
             NSString *currentPageXpathQueryString = @"//span[@class='current']";
             NSString *previewPageXpathQueryString = @"//a[@class='previouspostslink']";
             NSString *nextPageXpathQueryString = @"//a[@class='nextpostslink']";

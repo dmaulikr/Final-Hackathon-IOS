@@ -14,7 +14,6 @@
 #pragma mark - Click home button
 - (IBAction)clickHomeBtn:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    CategoryViewController *categoryVCL = [sb instantiateViewControllerWithIdentifier:@"CategoryViewController"];
     SWRevealViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -22,6 +21,19 @@
             }];
         });
     });
+}
+#pragma mark - Chap reading
+-(void)loadChapContent:(NSString *)urlString chapReading:(NSString *)chapReadingXpathQueryString {
+    NSMutableArray *newChapReadings = [[NSMutableArray alloc] init];
+    NSArray *chapReadingNodes = [[APIClient sharedInstance] loadFromUrl:urlString
+                                                   withXpathQueryString:chapReadingXpathQueryString];
+    for (TFHppleElement *element in chapReadingNodes) {
+        ChapReading *chapReading = [[ChapReading alloc] init];
+        [newChapReadings addObject:chapReading];
+        chapReading.title = element.firstChild.content;
+        NSLog(@"%@",chapReading.title);
+    }
+    self.chapReadingObjects = newChapReadings;
 }
 #pragma mark - Image
 -(void) loadChapContent:(NSString*)urlString image:(NSString *)imageXpathQueryString {
@@ -54,12 +66,14 @@
         }];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSString *urlString = nextChap.url;
+            NSString *chapReadingXpathQueryString = @"//h1[@class='name_chapter entry-title']";
             NSString *imageXpathQueryString = @"//div[@class='vung_doc']/img";
             NSString *previewChapXpathQueryString = @"//a[@rel='nofollow']";
             chapContentVCL.urlString = urlString;
             [chapContentVCL loadChapContent:urlString image:imageXpathQueryString];
             [chapContentVCL loadChapContent:urlString nextChap:previewChapXpathQueryString];
             [chapContentVCL loadChapContent:urlString previewChap:previewChapXpathQueryString];
+            [chapContentVCL loadChapContent:urlString chapReading:chapReadingXpathQueryString];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [chapContentVCL viewDidLoad];
             });
@@ -85,18 +99,19 @@
         }];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSString *urlString = previewChap.url;
+            NSString *chapReadingXpathQueryString = @"//h1[@class='name_chapter entry-title']";
             NSString *imageXpathQueryString = @"//div[@class='vung_doc']/img";
             NSString *previewChapXpathQueryString = @"//a[@rel='nofollow']";
             chapContentVCL.urlString = urlString;
             [chapContentVCL loadChapContent:urlString image:imageXpathQueryString];
             [chapContentVCL loadChapContent:urlString nextChap:previewChapXpathQueryString];
             [chapContentVCL loadChapContent:urlString previewChap:previewChapXpathQueryString];
+            [chapContentVCL loadChapContent:urlString chapReading:chapReadingXpathQueryString];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [chapContentVCL viewDidLoad];
             });
         });
     }
-
 }
 #pragma mark - Preview chap
 -(void) loadChapContent:(NSString *)urlString previewChap:(NSString *)previewChapXpathQueryString {
@@ -108,7 +123,6 @@
             PreviewChap *previewChap = [[PreviewChap alloc] init];
             [newPreviewChaps addObject:previewChap];
             previewChap.url = [element objectForKey:@"href"];
-            NSLog(@"%@", previewChap.url);
         }
     }
     self.previewChapObjects = newPreviewChaps;
@@ -123,7 +137,6 @@
             NextChap *nextChap = [[NextChap alloc] init];
             [newNextChaps addObject:nextChap];
             nextChap.url = [element objectForKey:@"href"];
-            NSLog(@"%@", nextChap.url);
         }
     }
     self.nextChapObjects = newNextChaps;
