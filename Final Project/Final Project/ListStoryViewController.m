@@ -7,9 +7,10 @@
 //
 
 #import "ListStoryViewController.h"
-
-@interface ListStoryViewController ()
-
+#import "AppDelegate.h"
+#import <FMDB/FMDB.h>
+@interface ListStoryViewController ()<NSFetchedResultsControllerDelegate>
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation ListStoryViewController
@@ -24,6 +25,12 @@
         storyName.title = [element.firstChild content];
         storyName.url = [element objectForKey:@"href"];
         [newStoryNames addObject:storyName];
+        ;
+        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[APPDELEGATE initaDB]];
+        [queue inDatabase:^(FMDatabase *db) {
+            BOOL result = [db executeUpdate:@"insert into Story(name, link) values(?,?)", storyName.title, storyName.url];
+        }];
+
     }
     self.storyNameObjects = newStoryNames;
 }

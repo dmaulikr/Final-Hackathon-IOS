@@ -26,7 +26,6 @@
                 topStoryName.title = [child.firstChild objectForKey:@"alt"];
             }
         }
-        NSLog(@"%@ \n %@", topStoryName.url, topStoryName.title);
     }
     self.topStoryNameObjects = newTopStoryNames;
 }
@@ -43,7 +42,6 @@
                 topStoryImage.url = [child.firstChild objectForKey:@"src"];
             }
         }
-        NSLog(@"%@",topStoryImage.url);
     }
     self.topStoryImageObjects = newTopStoryImages;
 }

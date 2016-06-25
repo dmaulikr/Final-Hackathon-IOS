@@ -26,6 +26,8 @@
 		E9B5E8771D1B247600BE0ACB /* DateUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B5E8761D1B247600BE0ACB /* DateUpdate.m */; };
 		E9B89C1E1D1D917100B1AACF /* TopStoryName.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B89C1D1D1D917100B1AACF /* TopStoryName.m */; };
 		E9B89C211D1D918000B1AACF /* TopStoryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B89C201D1D918000B1AACF /* TopStoryImage.m */; };
+		E9B89C531D1DC98700B1AACF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B89C521D1DC98700B1AACF /* libsqlite3.0.tbd */; };
+		E9B89C5B1D1DD74400B1AACF /* Database.db in Resources */ = {isa = PBXBuildFile; fileRef = E9B89C5A1D1DD74400B1AACF /* Database.db */; };
 		E9BA4D9D1D1923DF0006FEF5 /* ChapContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */; };
 		E9CC6DBE1D16ADF2003EEB08 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DBD1D16ADF2003EEB08 /* CustomCell.m */; };
 		E9CC6DC11D171445003EEB08 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CC6DC01D171445003EEB08 /* CategoryViewController.m */; };
@@ -80,6 +82,8 @@
 		E9B89C1D1D1D917100B1AACF /* TopStoryName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStoryName.m; sourceTree = "<group>"; };
 		E9B89C1F1D1D918000B1AACF /* TopStoryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStoryImage.h; sourceTree = "<group>"; };
 		E9B89C201D1D918000B1AACF /* TopStoryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStoryImage.m; sourceTree = "<group>"; };
+		E9B89C521D1DC98700B1AACF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		E9B89C5A1D1DD74400B1AACF /* Database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Database.db; sourceTree = "<group>"; };
 		E9BA4D9B1D1923DF0006FEF5 /* ChapContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapContentViewController.h; sourceTree = "<group>"; };
 		E9BA4D9C1D1923DF0006FEF5 /* ChapContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapContentViewController.m; sourceTree = "<group>"; };
 		E9CC6DBC1D16ADF2003EEB08 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = "Final Project/CustomCell.h"; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B89C531D1DC98700B1AACF /* libsqlite3.0.tbd in Frameworks */,
 				E93B28431D16618900486477 /* libxml2.tbd in Frameworks */,
 				9D100AFF268CB69229835823 /* libPods-Final Project.a in Frameworks */,
 			);
@@ -176,6 +181,7 @@
 		E9B2AF041D0FD62B00E76071 /* Final Project */ = {
 			isa = PBXGroup;
 			children = (
+				E9B89C5A1D1DD74400B1AACF /* Database.db */,
 				E9B2AF081D0FD62B00E76071 /* AppDelegate.h */,
 				E9B2AF091D0FD62B00E76071 /* AppDelegate.m */,
 				E9B2AF0B1D0FD62B00E76071 /* ViewController.h */,
@@ -409,6 +415,7 @@
 		EF2BCE7D77037AEE584687C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9B89C521D1DC98700B1AACF /* libsqlite3.0.tbd */,
 				E93B28421D16618900486477 /* libxml2.tbd */,
 				D37336A19CBFB1160DCDC906 /* libPods-Final Project.a */,
 			);
@@ -485,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B89C5B1D1DD74400B1AACF /* Database.db in Resources */,
 				E9B2AF181D0FD62B00E76071 /* LaunchScreen.storyboard in Resources */,
 				E9B2AF151D0FD62B00E76071 /* Assets.xcassets in Resources */,
 				E9B2AF101D0FD62B00E76071 /* Main.storyboard in Resources */,

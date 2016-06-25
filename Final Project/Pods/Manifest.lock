@@ -11,6 +11,9 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - hpple (0.2.0)
   - NAModalSheet (0.1.2)
   - Reachability (3.2)
@@ -26,6 +29,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - FMDB
   - hpple
   - NAModalSheet
   - Reachability
@@ -39,6 +43,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
   NAModalSheet: c8cbef42bc09e516c38ce470b099d0267b1754af
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -47,6 +52,6 @@ SPEC CHECKSUMS:
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   UIActivityIndicator-for-SDWebImage+UIButton: fec60d688a1b85ea6aabf5190a9fbb3752ebd16f
 
-PODFILE CHECKSUM: aa327f75ad5f4de905061590e75c35ebf49b3eb3
+PODFILE CHECKSUM: 70f2814f3ddd9e8bece01d3c8887e33f9023523b
 
 COCOAPODS: 1.0.1

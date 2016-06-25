@@ -7,13 +7,29 @@
 //
 
 #import "AppDelegate.h"
-
+#define kDatabaseName       @"Database.db"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+- (NSString*)initaDB {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:kDatabaseName];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if (![fileManager fileExistsAtPath: path])
+    {
+        NSString *bundle =  [[ NSBundle mainBundle] pathForResource:@"Database" ofType:@"db"];
+        [fileManager copyItemAtPath:bundle toPath:path error:nil];
+        NSLog(@"%@", bundle);
+        return bundle;
+    }
+    NSLog(@"%@", path);
+    return path;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

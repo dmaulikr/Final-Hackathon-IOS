@@ -202,6 +202,14 @@
             </objects>
             <point key="canvasLocation" x="-1895" y="-481"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="y1M-nc-pfK">
+            <objects>
+                <pageViewController storyboardIdentifier="PageContentViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Pkv-fO-UB6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mI5-lv-Kln" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-389" y="-980"/>
+        </scene>
         <!--ListStoryViewController-->
         <scene sceneID="dGj-0T-PMQ">
             <objects>
@@ -341,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VST-HP-bQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-613" y="-429"/>
+            <point key="canvasLocation" x="-440" y="-473"/>
         </scene>
         <!--Chap content ViewController-->
         <scene sceneID="5Zr-bO-Gmn">

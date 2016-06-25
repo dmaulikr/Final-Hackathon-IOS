@@ -16,4 +16,5 @@ pod 'SDWebImage'
 pod 'UIActivityIndicator-for-SDWebImage+UIButton'
 pod 'Reachability'
 pod 'SVPullToRefresh'
+pod 'FMDB'
 end
